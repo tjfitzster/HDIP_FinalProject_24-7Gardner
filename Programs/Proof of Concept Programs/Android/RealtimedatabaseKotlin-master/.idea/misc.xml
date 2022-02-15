@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/tjfitzpatrick/Desktop/P Handbook/Programs/Proof of Concept Programs/Android/RealtimedatabaseKotlin-master/app/src/main/res/drawable/input.xml" value="0.2703125" />
+        <entry key="..\:/Users/tjfitzpatrick/Desktop/P Handbook/Programs/Proof of Concept Programs/Android/RealtimedatabaseKotlin-master/app/src/main/res/layout/activity_main.xml" value="0.1598731884057971" />
+        <entry key="..\:/Users/tjfitzpatrick/Desktop/P Handbook/Programs/Proof of Concept Programs/Android/RealtimedatabaseKotlin-master/app/src/main/res/layout/activity_read_data.xml" value="0.1598731884057971" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
