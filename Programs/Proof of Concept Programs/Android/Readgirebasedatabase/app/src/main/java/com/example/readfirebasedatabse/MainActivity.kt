@@ -1,10 +1,8 @@
-package com.example.realtimedatabasekotlin
-
-
+package com.example.readfirebasedatabse
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.realtimedatabasekotlin.databinding.ActivityMainBinding
+import com.example.readfirebasedatabse.databinding.ActivityMainBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
@@ -39,11 +37,7 @@ class MainActivity : AppCompatActivity() {
 
                 Toast.makeText(this,"Failed",Toast.LENGTH_SHORT).show()
 
-
             }
-
-
         }
-
     }
 }
