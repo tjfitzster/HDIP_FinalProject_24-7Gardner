@@ -5,11 +5,14 @@
       <map>
         <entry key="..\:/Users/tjfitzpatrick/Desktop/P Handbook/Programs/Final Program/Android/app/src/main/res/drawable-v24/btn_background.xml" value="0.15" />
         <entry key="..\:/Users/tjfitzpatrick/Desktop/P Handbook/Programs/Final Program/Android/app/src/main/res/drawable-v24/edt_background.xml" value="0.15" />
+        <entry key="..\:/Users/tjfitzpatrick/Desktop/P Handbook/Programs/Final Program/Android/app/src/main/res/drawable-v24/ic_black_color_back_24dp.xml" value="0.121" />
+        <entry key="..\:/Users/tjfitzpatrick/Desktop/P Handbook/Programs/Final Program/Android/app/src/main/res/drawable-v24/ic_white_color_back_24dp.xml" value="0.121" />
         <entry key="..\:/Users/tjfitzpatrick/Desktop/P Handbook/Programs/Final Program/Android/app/src/main/res/drawable/ic_baseline_local_florist_24.xml" value="0.15" />
         <entry key="..\:/Users/tjfitzpatrick/Desktop/P Handbook/Programs/Final Program/Android/app/src/main/res/layout/activity_forgot_password.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/tjfitzpatrick/Desktop/P Handbook/Programs/Final Program/Android/app/src/main/res/layout/activity_login.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/tjfitzpatrick/Desktop/P Handbook/Programs/Final Program/Android/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/tjfitzpatrick/Desktop/P Handbook/Programs/Final Program/Android/app/src/main/res/layout/activity_register.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/tjfitzpatrick/Desktop/P Handbook/Programs/Final Program/Android/app/src/main/res/layout/activity_register.xml" value="0.136" />
+        <entry key="..\:/Users/tjfitzpatrick/Desktop/P Handbook/Programs/Final Program/Android/app/src/main/res/layout/dialog_progress.xml" value="0.176" />
       </map>
     </option>
   </component>

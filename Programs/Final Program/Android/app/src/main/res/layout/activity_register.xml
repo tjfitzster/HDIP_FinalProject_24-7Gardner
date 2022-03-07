@@ -4,8 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity">
+    tools:context=".activities.RegisterActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_register_activity"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingStart="25dp"
+            android:paddingEnd="0dp"
+            android:text="@string/create_an_account"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="18sp" />
+
+    </androidx.appcompat.widget.Toolbar>
     <ImageView
         android:id="@+id/app_logo"
         android:layout_width="150dp"
@@ -22,9 +42,9 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
+        android:background="@drawable/edt_background"
         android:hint="Username"
-        android:paddingLeft="13dp"
-        android:background="@drawable/edt_background"/>
+        android:paddingLeft="13dp" />
 
     <EditText
         android:id="@+id/et_register_email"
@@ -49,6 +69,7 @@
         android:background="@drawable/edt_background"
         android:hint="Password"
         android:paddingLeft="13dp" />
+
 
     <Button
         android:id="@+id/btn_register"
@@ -76,12 +97,14 @@
         android:id="@+id/tv_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_below="@id/btn_register"
         android:layout_marginLeft="240dp"
+        android:layout_marginTop="16dp"
         android:foreground="?attr/selectableItemBackground"
         android:padding="5dp"
         android:text="Login"
         android:textStyle="bold" />
+
+
 
 </RelativeLayout>

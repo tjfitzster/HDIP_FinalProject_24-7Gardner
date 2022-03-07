@@ -10,4 +10,9 @@
     <color name="orange">#f0b40e</color>
     <color name="Darkorange">#a17808</color>
     <color name="green">#35BE35</color>
+
+    <color name="colorPrimaryText">#222934</color>
+
+    <color name="colorSnackBarSuccess">#8BC34A</color>
+    <color name="colorSnackBarError">#F72400</color>
 </resources>

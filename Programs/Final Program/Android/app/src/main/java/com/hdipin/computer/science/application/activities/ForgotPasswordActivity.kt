@@ -1,9 +1,10 @@
-package com.hdipin.computer.science.application
+package com.hdipin.computer.science.application.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.hdipin.computer.science.application.R
 import kotlinx.android.synthetic.main.activity_forgot_password.*
 
 // TODO Step 1 : Create an empty activity as Forgot Password Activity.

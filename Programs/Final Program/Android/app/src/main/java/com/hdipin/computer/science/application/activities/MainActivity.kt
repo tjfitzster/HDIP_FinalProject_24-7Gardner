@@ -1,7 +1,8 @@
-package com.hdipin.computer.science.application
+package com.hdipin.computer.science.application.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.hdipin.computer.science.application.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
