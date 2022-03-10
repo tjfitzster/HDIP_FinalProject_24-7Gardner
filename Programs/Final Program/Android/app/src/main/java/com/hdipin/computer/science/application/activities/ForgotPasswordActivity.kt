@@ -7,9 +7,10 @@ import com.google.firebase.auth.FirebaseAuth
 import com.hdipin.computer.science.application.R
 import kotlinx.android.synthetic.main.activity_forgot_password.*
 
-// TODO Step 1 : Create an empty activity as Forgot Password Activity.
+// TODO Step 1: Create a Forgot Password Activity.
+// START
 /**
- * Login Screen of the application.
+ * Forgot Password Screen of the application.
  */
 class ForgotPasswordActivity : AppCompatActivity() {
 
@@ -22,45 +23,31 @@ class ForgotPasswordActivity : AppCompatActivity() {
         // This is used to align the xml view to this class
         setContentView(R.layout.activity_forgot_password)
 
-        // TODO Step 5: Assign the click event to the submit button and add the feature for password recovery.
+        // TODO Step 7: Call the setup action bar function.
         // START
-        btn_submit.setOnClickListener {
-
-            // Get the email id from the input field.
-            val email: String = et_forgot_email.text.toString().trim { it <= ' ' }
-
-            // Now, If the email entered in blank then show the error message or else continue with the implemented feature.
-            if (email.isEmpty()) {
-                Toast.makeText(
-                    this@ForgotPasswordActivity,
-                    "Please enter email.",
-                    Toast.LENGTH_SHORT
-                ).show()
-            } else {
-
-                // This piece of code is used to send the reset password link to the user's email id if the user is registered.
-                FirebaseAuth.getInstance().sendPasswordResetEmail(email)
-                    .addOnCompleteListener { task ->
-
-                        if (task.isSuccessful) {
-                            // Show the toast message and finish the forgot password activity to go back to the login screen.
-                            Toast.makeText(
-                                this@ForgotPasswordActivity,
-                                "Email sent successfully to reset your password!",
-                                Toast.LENGTH_LONG
-                            ).show()
-
-                            finish()
-                        } else {
-                            Toast.makeText(
-                                this@ForgotPasswordActivity,
-                                task.exception!!.message.toString(),
-                                Toast.LENGTH_LONG
-                            ).show()
-                        }
-                    }
-            }
-        }
+        setupActionBar()
         // END
+
     }
+
+
+    // TODO Step 6: Create a function to setup the action bar.
+    // START
+    /**
+     * A function for actionBar Setup.
+     */
+    private fun setupActionBar() {
+
+        setSupportActionBar(toolbar_forgot_password_activity)
+
+        val actionBar = supportActionBar
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true)
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_white_color_back_24dp)
+        }
+
+        toolbar_forgot_password_activity.setNavigationOnClickListener { onBackPressed() }
+    }
+    // END
 }
+// END
