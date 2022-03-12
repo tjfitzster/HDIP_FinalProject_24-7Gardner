@@ -11,7 +11,7 @@
     <string name="register"><u>Register</u></string>
 
     <string name="create_an_account">CREATE AN ACCOUNT</string>
-
+    <string name="splash_title_text_size">24/7 GARDENER</string>
     <string name="hint_last_name">Last name</string>
     <string name="hint_first_name">First name</string>
     <string name="et_hint_confirm_password">Confirm Password</string>
@@ -37,4 +37,6 @@
     <string name="title_forgot_password">FORGOT PASSWORD?</string>
     <string name="forgot_password_title_description">Enter your username and e-mail address we\'ll send you a email to reset your password</string>
     <string name="btn_lbl_submit">Submit</string>
+    <!--START-->
+    <string name="email_sent_success">\"Email sent successfully to reset your password! \"</string>
 </resources>

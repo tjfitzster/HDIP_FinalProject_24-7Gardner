@@ -9,6 +9,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.hdipin.computer.science.application.R
 import kotlinx.android.synthetic.main.activity_register.*
+import com.hdipin.computer.science.application.activities.BaseActivity
 
 @Suppress("DEPRECATION")
 class RegisterActivity : BaseActivity() {
