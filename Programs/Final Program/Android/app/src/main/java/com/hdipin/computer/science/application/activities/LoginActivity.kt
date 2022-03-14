@@ -101,13 +101,13 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
             // Log-In using FirebaseAuth
             FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
-
                     // Hide the progress dialog
                     hideProgressDialog()
 
                     if (task.isSuccessful) {
-
                         showErrorSnackBar("You are logged in successfully.", false)
+                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                        startActivity(intent)
                     } else {
                         showErrorSnackBar(task.exception!!.message.toString(), true)
                     }

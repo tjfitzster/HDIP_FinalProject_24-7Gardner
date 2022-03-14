@@ -30,15 +30,15 @@ class RegisterActivity : BaseActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
 
-        setupActionBar()
+        //setupActionBar()
 
         btn_register.setOnClickListener {
 
-            registerUser()
+             registerUser()
         }
 
         // START
-        tv_login.setOnClickListener{
+        tv_login.setOnClickListener {
             // Here when the user click on login text we can either call the login activity or call the onBackPressed function.
             // We will call the onBackPressed function.
             onBackPressed()
@@ -48,6 +48,7 @@ class RegisterActivity : BaseActivity() {
     /**
      * A function for actionBar Setup.
      */
+
     private fun setupActionBar() {
 
         setSupportActionBar(toolbar_register_activity)
@@ -127,6 +128,8 @@ class RegisterActivity : BaseActivity() {
             showProgressDialog(resources.getString(R.string.please_wait))
 
             val email: String = et_email.text.toString().trim { it <= ' ' }
+            val fname: String = et_first_name.text.toString().trim { it <= ' ' }
+            val lname: String = et_last_name.text.toString().trim { it <= ' ' }
             val password: String = et_password.text.toString().trim { it <= ' ' }
 
             // Create an instance and create a register a user with email and password.
@@ -143,6 +146,8 @@ class RegisterActivity : BaseActivity() {
                             // Firebase registered user
                             val firebaseUser: FirebaseUser = task.result!!.user!!
 
+
+                            
                             showErrorSnackBar(
                                 "You are registered successfully. Your user id is ${firebaseUser.uid}",
                                 false
@@ -160,6 +165,7 @@ class RegisterActivity : BaseActivity() {
                             showErrorSnackBar(task.exception!!.message.toString(), true)
                         }
                     })
-        }
+       }
     }
 }
+

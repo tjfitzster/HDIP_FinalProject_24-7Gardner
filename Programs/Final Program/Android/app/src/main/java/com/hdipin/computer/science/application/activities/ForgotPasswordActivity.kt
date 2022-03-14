@@ -23,7 +23,7 @@ class ForgotPasswordActivity : BaseActivity() {
         // This is used to align the xml view to this class
         setContentView(R.layout.activity_forgot_password)
 
-        setupActionBar()
+     //   setupActionBar()
         // TODO Step 7: Call the setup action bar function.
         // START
         btn_submit.setOnClickListener {
