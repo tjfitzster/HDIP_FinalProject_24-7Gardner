@@ -6,11 +6,164 @@
     android:layout_height="match_parent"
     tools:context=".activities.UserProfileActivity">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="212dp"
-        android:layout_height="105dp"
-        android:text="User Profile Page"
-        tools:layout_editor_absoluteX="88dp"
-        tools:layout_editor_absoluteY="313dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_user_profile_activity"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        android:textAlignment="center"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/createac_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingStart="25dp"
+            android:paddingEnd="0dp"
+            android:text="@string/completeprofile"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="18sp" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+android:layout_width="match_parent"
+android:layout_height="0dp"
+android:fillViewport="true"
+android:scrollbars="none"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toBottomOf="@id/toolbar_user_profile_activity">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+   <FrameLayout
+       android:id="@+id/fl_user_image"
+       android:layout_width="150dp"
+       android:layout_height="150dp"
+       android:layout_marginTop="50dp"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent">
+       <ImageView
+           android:id="@+id/iv_user_photo"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:layout_margin="3dp"
+           android:background="#F1F1F1"
+           android:contentDescription="@string/content_description"
+           android:scaleType="fitXY"
+           android:src="@drawable/ic_user_placeholder" />
+       <View
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:background="@drawable/user_image_background" />
+   </FrameLayout>
+
+
+        <EditText
+            android:id="@+id/et_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edt_background"
+            android:hint="Username"
+            android:inputType="text"
+            android:padding="@dimen/et_padding"
+            android:textColor="@color/colorPrimaryText"
+
+            android:textSize="@dimen/et_textSize"
+            app:layout_constraintTop_toBottomOf="@+id/fl_user_image"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <EditText
+            android:id="@+id/et_first_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_username"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edt_background"
+            android:hint="First Name"
+            android:inputType="text"
+            android:padding="@dimen/et_padding"
+            android:textColor="@color/colorPrimaryText"
+            app:layout_constraintTop_toBottomOf="@+id/et_username"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <EditText
+            android:id="@+id/et_last_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_first_name"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edt_background"
+            android:hint="Second Name"
+            android:inputType="text"
+            android:padding="@dimen/et_padding"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="@dimen/et_textSize"
+            app:layout_constraintTop_toBottomOf="@+id/et_first_name"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <EditText
+            android:id="@+id/et_mobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_username"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edt_background"
+            android:hint="Mobile No"
+            android:inputType="text|numberDecimal"
+            android:padding="@dimen/et_padding"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="@dimen/et_textSize"
+            app:layout_constraintTop_toBottomOf="@+id/et_last_name"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <Button
+        android:id="@+id/btn_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/btn_background"
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center"
+        android:paddingTop="@dimen/btn_padding"
+        android:paddingBottom="@dimen/btn_padding"
+        android:text="Save"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/et_mobile"
+        />
+
+        <Button
+            android:id="@+id/btn_exit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn_exit_background"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:paddingTop="@dimen/btn_padding"
+            android:paddingBottom="@dimen/btn_padding"
+            android:text="Exit"
+            android:textColor="@color/colorWhite"
+
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@+id/btn_save"
+            tools:layout_editor_absoluteX="0dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
