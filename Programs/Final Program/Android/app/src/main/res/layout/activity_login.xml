@@ -8,11 +8,11 @@
 
     <ImageView
         android:id="@+id/app_logo"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="70dp"
-        android:src="@drawable/ic_baseline_local_florist_24" />
+        android:src="@drawable/homeplant" />
 
     <EditText
         android:id="@+id/et_login_email"

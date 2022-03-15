@@ -12,9 +12,9 @@
         android:layout_width="311dp"
         android:layout_height="53dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="328dp"
         android:background="@drawable/btn_background"
-        android:text="view Gardens"
+        android:text="User Gardens"
         android:textColor="@color/colorWhite"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,11 +25,10 @@
         android:id="@+id/btn_userSettings"
         android:layout_width="311dp"
         android:layout_height="53dp"
-        android:layout_below="@+id/btn_viewGardens"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/btn_background"
-        android:text="User Settings"
+        android:text="User Profile"
         android:textColor="@color/colorWhite"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,37 +39,39 @@
         android:id="@+id/btn_logout"
         android:layout_width="311dp"
         android:layout_height="53dp"
-        android:layout_below="@+id/btn_userSettings"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="404dp"
+
+        android:layout_marginTop="20dp"
         android:background="@drawable/btn_background"
         android:text="Logout"
         android:textColor="@color/colorWhite"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_userSettings" />
 
     <ImageView
         android:id="@+id/app_logo"
-        android:layout_width="150dp"
+        android:layout_width="250dp"
         android:layout_height="150dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="32dp"
-        android:src="@drawable/ic_baseline_local_florist_24"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_logout" />
+        android:src="@drawable/homecollection"
 
-    <ImageView
-        android:id="@+id/app_logo2"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/ic_baseline_local_florist_24"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btn_viewGardens"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/app_logo"
-        app:layout_constraintTop_toBottomOf="@+id/btn_logout" />
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.606" />
+
+    <TextView
+        android:id="@+id/emailView"
+        android:layout_width="232dp"
+        android:layout_height="49dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/btn_viewGardens"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/app_logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

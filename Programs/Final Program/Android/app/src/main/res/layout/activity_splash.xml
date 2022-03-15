@@ -7,15 +7,15 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="70dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.189"
-        app:srcCompat="@drawable/ic_baseline_local_florist_24" />
+        app:srcCompat="@drawable/homeplant" />
 
     <TextView
         android:id="@+id/textView"

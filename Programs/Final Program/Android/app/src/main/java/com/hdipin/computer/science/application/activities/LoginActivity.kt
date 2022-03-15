@@ -107,6 +107,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
                     if (task.isSuccessful) {
                         showErrorSnackBar("You are logged in successfully.", false)
                         val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                        intent.putExtra("STRING_I_NEED", email)
                         startActivity(intent)
                     } else {
                         showErrorSnackBar(task.exception!!.message.toString(), true)
