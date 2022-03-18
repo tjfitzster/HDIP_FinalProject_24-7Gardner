@@ -64,7 +64,5 @@ class ReadData : AppCompatActivity() {
 
         }
 
-
-
     }
 }

@@ -3,12 +3,15 @@ package com.hdipin.computer.science.application.activities
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.WindowManager
+import android.widget.Toast
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.hdipin.computer.science.application.R
 import kotlinx.android.synthetic.main.activity_register.*
+
+import com.google.firebase.database.DatabaseReference
 import com.hdipin.computer.science.application.activities.BaseActivity
 
 @Suppress("DEPRECATION")
@@ -67,15 +70,15 @@ class RegisterActivity : BaseActivity() {
      */
     private fun validateRegisterDetails(): Boolean {
         return when {
-            TextUtils.isEmpty(et_first_name.text.toString().trim { it <= ' ' }) -> {
-                showErrorSnackBar(resources.getString(R.string.err_msg_enter_first_name), true)
-                false
-            }
+           // TextUtils.isEmpty(et_first_name.text.toString().trim { it <= ' ' }) -> {
+          //      showErrorSnackBar(resources.getString(R.string.err_msg_enter_first_name), true)
+          //      false
+        //    }
 
-            TextUtils.isEmpty(et_last_name.text.toString().trim { it <= ' ' }) -> {
-                showErrorSnackBar(resources.getString(R.string.err_msg_enter_last_name), true)
-                false
-            }
+          //  TextUtils.isEmpty(et_last_name.text.toString().trim { it <= ' ' }) -> {
+            //    showErrorSnackBar(resources.getString(R.string.err_msg_enter_last_name), true)
+          //      false
+         //   }
 
             TextUtils.isEmpty(et_email.text.toString().trim { it <= ' ' }) -> {
                 showErrorSnackBar(resources.getString(R.string.err_msg_enter_email), true)
@@ -128,8 +131,6 @@ class RegisterActivity : BaseActivity() {
             showProgressDialog(resources.getString(R.string.please_wait))
 
             val email: String = et_email.text.toString().trim { it <= ' ' }
-            val fname: String = et_first_name.text.toString().trim { it <= ' ' }
-            val lname: String = et_last_name.text.toString().trim { it <= ' ' }
             val password: String = et_password.text.toString().trim { it <= ' ' }
 
             // Create an instance and create a register a user with email and password.
@@ -145,14 +146,10 @@ class RegisterActivity : BaseActivity() {
 
                             // Firebase registered user
                             val firebaseUser: FirebaseUser = task.result!!.user!!
-
-
-                            
                             showErrorSnackBar(
-                                "You are registered successfully. Your user id is ${firebaseUser.uid}",
-                                false
+                              "You are registered successfully. Your user id is ${firebaseUser.uid}",
+                               false
                             )
-
                             /**
                              * Here the new user registered is automatically signed-in so we just sign-out the user from firebase
                              * and send him to Login Screen.
@@ -167,5 +164,7 @@ class RegisterActivity : BaseActivity() {
                     })
        }
     }
+
+
 }
 

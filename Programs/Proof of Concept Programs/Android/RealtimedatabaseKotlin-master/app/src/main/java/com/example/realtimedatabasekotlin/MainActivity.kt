@@ -36,9 +36,7 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this,"Successfully Saved",Toast.LENGTH_SHORT).show()
 
             }.addOnFailureListener{
-
                 Toast.makeText(this,"Failed",Toast.LENGTH_SHORT).show()
-
 
             }
 

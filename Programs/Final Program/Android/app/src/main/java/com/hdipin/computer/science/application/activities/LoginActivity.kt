@@ -7,6 +7,7 @@ import android.view.View
 import android.view.WindowManager
 import kotlinx.android.synthetic.main.activity_login.*
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.hdipin.computer.science.application.R
 
 
@@ -44,7 +45,6 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
             when (v.id) {
 
                 R.id.tv_forgot_password -> {
-                    // TODO Step 8: Launch the Forgot Password Activity when user clicks on forgot password text.
                     // START
                     // Launch the forgot password screen when the user clicks on the forgot password text.
                     val intent = Intent(this@LoginActivity, ForgotPasswordActivity::class.java)
@@ -107,7 +107,8 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
                     if (task.isSuccessful) {
                         showErrorSnackBar("You are logged in successfully.", false)
                         val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                        intent.putExtra("STRING_I_NEED", email)
+                        val firebaseUser: FirebaseUser = task.result!!.user!!
+                        intent.putExtra("UserId", firebaseUser.uid)
                         startActivity(intent)
                     } else {
                         showErrorSnackBar(task.exception!!.message.toString(), true)

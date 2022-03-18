@@ -2,12 +2,14 @@ package com.hdipin.computer.science.application.activities
 
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.hdipin.computer.science.application.databinding.ActivityMainBinding
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
-
+import com.hdipin.computer.science.application.R
+import com.hdipin.computer.science.application.databinding.ActivityMainBinding
 
 
 
@@ -21,19 +23,18 @@ class MainActivity : AppCompatActivity(){
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        if (intent.hasExtra("STRING_I_NEED")) {
-            // Get the user details from intent as a ParcelableExtra.
-            val email = intent.getStringExtra("STRING_I_NEED")!!
-            binding.emailView.text = email
-        }
+
+        val id = intent.getStringExtra("UserId")
 
         binding.btnViewGardens.setOnClickListener() {
-            Toast.makeText(this,"View Gardens Button Pressed",Toast.LENGTH_SHORT).show()
+
+            showErrorSnackBar("User Gardens pressed.", false)
         }
         binding.btnUserSettings.setOnClickListener(){
-            Toast.makeText(this,"User Settings Button Pressed",Toast.LENGTH_SHORT).show()
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
             val intent = Intent(this@MainActivity, UserProfileActivity::class.java)
-            intent.putExtra("STRING_I_NEED", binding.emailView.text)
+            intent.putExtra("UserId", id)
             startActivity(intent)
         }
 
@@ -43,10 +44,36 @@ class MainActivity : AppCompatActivity(){
             val intent = Intent(this@MainActivity, LoginActivity::class.java)
             startActivity(intent)
             finish()
-            //Toast.makeText(this,"Logout Button Pressed",Toast.LENGTH_SHORT).show()
+           //
 
         }
 
 
+
     }
+
+    fun showErrorSnackBar(message: String, errorMessage: Boolean) {
+        val snackBar =
+            Snackbar.make(findViewById(android.R.id.content), message, Snackbar.LENGTH_LONG)
+        val snackBarView = snackBar.view
+
+        if (errorMessage) {
+            snackBarView.setBackgroundColor(
+                ContextCompat.getColor(
+                    this@MainActivity,
+                    R.color.colorSnackBarError
+                )
+            )
+        }else{
+            snackBarView.setBackgroundColor(
+                ContextCompat.getColor(
+                    this@MainActivity,
+                    R.color.colorSnackBarSuccess
+                )
+            )
+        }
+        snackBar.show()
+    }
+
+
 }

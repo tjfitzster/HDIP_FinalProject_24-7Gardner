@@ -69,6 +69,19 @@ app:layout_constraintTop_toBottomOf="@id/toolbar_user_profile_activity">
            android:background="@drawable/user_image_background" />
    </FrameLayout>
 
+        <EditText
+            android:id="@+id/et_userID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edt_background"
+            android:hint="User ID"
+            android:inputType="text"
+            android:padding="@dimen/et_padding"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="@dimen/et_textSize"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="0dp" />
+
 
         <EditText
             android:id="@+id/et_username"
@@ -146,23 +159,8 @@ app:layout_constraintTop_toBottomOf="@id/toolbar_user_profile_activity">
         app:layout_constraintTop_toBottomOf="@+id/et_mobile"
         />
 
-        <Button
-            android:id="@+id/btn_exit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/btn_exit_background"
-            android:foreground="?attr/selectableItemBackground"
-            android:gravity="center"
-            android:paddingTop="@dimen/btn_padding"
-            android:paddingBottom="@dimen/btn_padding"
-            android:text="Exit"
-            android:textColor="@color/colorWhite"
 
-            android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@+id/btn_save"
-            tools:layout_editor_absoluteX="0dp" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
