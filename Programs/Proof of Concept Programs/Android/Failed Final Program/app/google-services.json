@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "579614166455",
+    "firebase_url": "https://finalyearproject-9d327-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "finalyearproject-9d327",
+    "storage_bucket": "finalyearproject-9d327.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:579614166455:android:4605661888c2b33267ec32",
+        "android_client_info": {
+          "package_name": "com.hdipin.computer.science.application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "579614166455-p3sv77s1khduducn588mvf7v4oisct23.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hdipin.computer.science.application",
+            "certificate_hash": "d9245a5d498913954254d436837ebcb6da02cba4"
+          }
+        },
+        {
+          "client_id": "579614166455-kqkq0r7qohbkn2nuk34g6jh6nfiha0os.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBY7ldYuoUnHRKPSYotF0oQ_ayucNa6iYs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "579614166455-kqkq0r7qohbkn2nuk34g6jh6nfiha0os.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

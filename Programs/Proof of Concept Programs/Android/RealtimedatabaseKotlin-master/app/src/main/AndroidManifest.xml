@@ -10,18 +10,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RealtimedatabaseKotlin">
         <activity android:name=".UpdateData">
+
+        </activity>
+        <activity android:name=".ReadData">
+        </activity>
+        <activity android:name=".UserProfileActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
+        </activity>
+        <activity android:name=".MainActivity">
+
 
         </activity>
-        <activity android:name=".ReadData">
-
-        </activity>
-        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>

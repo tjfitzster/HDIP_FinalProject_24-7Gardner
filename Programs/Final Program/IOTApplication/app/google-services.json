@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "714618999720",
+    "firebase_url": "https://finalproject-83f4a-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "finalproject-83f4a",
+    "storage_bucket": "finalproject-83f4a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:714618999720:android:6e5fe7b4696708aa59839d",
+        "android_client_info": {
+          "package_name": "com.hdipin.computer.science.iotapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "714618999720-0dan8pb9aiqkldaq6dbkni99v00ghlac.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hdipin.computer.science.iotapplication",
+            "certificate_hash": "d9245a5d498913954254d436837ebcb6da02cba4"
+          }
+        },
+        {
+          "client_id": "714618999720-6g6cofb0d71lb9h3gvf497b4ksr096vp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtHoQXTHGvdW9GMrKLaCnAdUednmQSdJ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "714618999720-6g6cofb0d71lb9h3gvf497b4ksr096vp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

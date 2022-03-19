@@ -1,0 +1,159 @@
+{
+  "project_info": {
+    "project_number": "547432615951",
+    "firebase_url": "https://rpi-database-project-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "rpi-database-project",
+    "storage_bucket": "rpi-database-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:547432615951:android:63fa8faf6ca6aaf879137a",
+        "android_client_info": {
+          "package_name": "com.example.realtimedatabasekotlin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "547432615951-bhejib5g4gq8tc1fkp4kivqm76vn0akh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.realtimedatabasekotlin",
+            "certificate_hash": "d9245a5d498913954254d436837ebcb6da02cba4"
+          }
+        },
+        {
+          "client_id": "547432615951-d4djmibh7i94hitas8145bpmsjhptheq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA65mYPcE3nGhyEFwSKVNcHSQE424OAtjc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "547432615951-d4djmibh7i94hitas8145bpmsjhptheq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:547432615951:android:7aa384778b63891679137a",
+        "android_client_info": {
+          "package_name": "com.hdipin.computer.science.application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "547432615951-91besv3rdsspmn6iqnke1ei0u4e6v0ti.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hdipin.computer.science.application",
+            "certificate_hash": "d9245a5d498913954254d436837ebcb6da02cba4"
+          }
+        },
+        {
+          "client_id": "547432615951-d4djmibh7i94hitas8145bpmsjhptheq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA65mYPcE3nGhyEFwSKVNcHSQE424OAtjc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "547432615951-d4djmibh7i94hitas8145bpmsjhptheq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:547432615951:android:127ed4ed63ad0c2779137a",
+        "android_client_info": {
+          "package_name": "com.hdipin.computer.science.logintestprogram"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "547432615951-bh6f8uhgmt92oi653nmhsmbgdk3oo1mn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hdipin.computer.science.logintestprogram",
+            "certificate_hash": "d9245a5d498913954254d436837ebcb6da02cba4"
+          }
+        },
+        {
+          "client_id": "547432615951-d4djmibh7i94hitas8145bpmsjhptheq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA65mYPcE3nGhyEFwSKVNcHSQE424OAtjc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "547432615951-d4djmibh7i94hitas8145bpmsjhptheq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:547432615951:android:587b55297e6d753379137a",
+        "android_client_info": {
+          "package_name": "com.hdipin.computer.science.testloginprogram"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "547432615951-1fpvk3vcv8phm8sheamnhdtd6o1q1lu2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hdipin.computer.science.testloginprogram",
+            "certificate_hash": "d9245a5d498913954254d436837ebcb6da02cba4"
+          }
+        },
+        {
+          "client_id": "547432615951-d4djmibh7i94hitas8145bpmsjhptheq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA65mYPcE3nGhyEFwSKVNcHSQE424OAtjc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "547432615951-d4djmibh7i94hitas8145bpmsjhptheq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

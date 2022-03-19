@@ -3,10 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/tjfitzpatrick/Desktop/P Handbook/Programs/Proof of Concept Programs/Android/RealtimedatabaseKotlin-master/app/src/main/res/drawable/btn_background.xml" value="0.285" />
         <entry key="..\:/Users/tjfitzpatrick/Desktop/P Handbook/Programs/Proof of Concept Programs/Android/RealtimedatabaseKotlin-master/app/src/main/res/drawable/input.xml" value="0.2703125" />
         <entry key="..\:/Users/tjfitzpatrick/Desktop/P Handbook/Programs/Proof of Concept Programs/Android/RealtimedatabaseKotlin-master/app/src/main/res/layout/activity_main.xml" value="0.1598731884057971" />
         <entry key="..\:/Users/tjfitzpatrick/Desktop/P Handbook/Programs/Proof of Concept Programs/Android/RealtimedatabaseKotlin-master/app/src/main/res/layout/activity_read_data.xml" value="0.1598731884057971" />
         <entry key="..\:/Users/tjfitzpatrick/Desktop/P Handbook/Programs/Proof of Concept Programs/Android/RealtimedatabaseKotlin-master/app/src/main/res/layout/activity_update_data.xml" value="0.2" />
+        <entry key="..\:/Users/tjfitzpatrick/Desktop/P Handbook/Programs/Proof of Concept Programs/Android/RealtimedatabaseKotlin-master/app/src/main/res/layout/activity_user_profile.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/tjfitzpatrick/Desktop/P Handbook/Programs/Proof of Concept Programs/Android/RealtimedatabaseKotlin-master/app/src/main/res/layout/create_user.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>
