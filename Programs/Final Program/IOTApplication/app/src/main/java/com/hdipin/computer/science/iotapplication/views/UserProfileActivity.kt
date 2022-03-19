@@ -10,7 +10,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.hdipin.computer.science.iotapplication.R
 import com.hdipin.computer.science.iotapplication.databinding.ActivityUserProfileBinding
-import com.hdipin.computer.science.iotapplication.models.userProfile
+import com.hdipin.computer.science.iotapplication.models.UserProfileModel
 
 
 class UserProfileActivity : AppCompatActivity() {
@@ -23,7 +23,6 @@ class UserProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityUserProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         val userName = intent.getStringExtra("userName")
         binding.etUsername.setText(userName.toString())
 
@@ -58,7 +57,7 @@ class UserProfileActivity : AppCompatActivity() {
 
     private fun writeData(userName: String){
 
-        val userProfile = userProfile(binding.etUsername.text.toString(),
+        val userProfile = UserProfileModel(binding.etUsername.text.toString(),
         binding.etFirstName.text.toString(),
         binding.etLastName.text.toString(),
         binding.etMobile.text.toString())

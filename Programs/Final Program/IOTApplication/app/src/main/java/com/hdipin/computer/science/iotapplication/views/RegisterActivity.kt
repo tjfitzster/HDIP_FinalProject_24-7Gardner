@@ -1,22 +1,30 @@
 package com.hdipin.computer.science.iotapplication.views
 
 
+//import com.google.android.gms.tasks.OnCompleteListener
+
 import android.os.Bundle
 import android.text.TextUtils
-import android.view.WindowManager
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import android.util.Log
 
-//import com.google.android.gms.tasks.OnCompleteListener
+import android.view.WindowManager
+import androidx.constraintlayout.motion.widget.Debug
+
+import com.google.firebase.database.*
 import com.hdipin.computer.science.iotapplication.R
 import com.hdipin.computer.science.iotapplication.activities.BaseActivity
 import com.hdipin.computer.science.iotapplication.models.UserModel
 import kotlinx.android.synthetic.main.activity_register.*
 
+private const val TAG = "RegisterActivity"
+
 @Suppress("DEPRECATION")
 class RegisterActivity : BaseActivity() {
 
+
+
     private lateinit var database : DatabaseReference
+
     override fun onCreate(savedInstanceState: Bundle?) {
         //This call the parent constructor
         super.onCreate(savedInstanceState)
@@ -122,34 +130,34 @@ class RegisterActivity : BaseActivity() {
             val email: String = et_username.text.toString().trim { it <= ' ' }
             val password: String = et_password.text.toString().trim { it <= ' ' }
 
-            //checkifuserisalreadyindatabase
-
             //generateanidifnot
-            
             addUserToDatabase(email, password)
             // Create an instance and create a register a user with email and password.
         }
     }
 
-    private fun addUserToDatabase(username: String, password: String){
+    private fun addUserToDatabase(userName: String, password: String) {
 
-        val user = UserModel(username,password)
+        val user = UserModel(userName, password, "1234") // need to figure out random id
         database = FirebaseDatabase.getInstance().getReference("Users")
-       // val key: String? = database.push().key
-       // database.child(key.toString()).setValue(user).addOnSuccessListener {
-        database.child(username).setValue(user).addOnSuccessListener {
 
-            hideProgressDialog()
-            showErrorSnackBar("User Successfully Registered", false)
+        database.child(userName).get().addOnSuccessListener {
 
-        }.addOnFailureListener{
-            showErrorSnackBar("There was an error with the database", true)
+            if (it.exists()) {
+                showErrorSnackBar("User Already in Registered", true)
+                hideProgressDialog()
+            } else {
 
+                database.child(userName).setValue(user).addOnSuccessListener {
+                    hideProgressDialog()
+                    showErrorSnackBar("User Successfully Registered", false)
+                }.addOnFailureListener {
+                    showErrorSnackBar("There was an error with the database", true)
+
+                }
+            }
         }
 
-
-
     }
-
 
 }
