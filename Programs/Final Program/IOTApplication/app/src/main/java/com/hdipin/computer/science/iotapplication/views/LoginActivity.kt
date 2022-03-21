@@ -17,13 +17,12 @@ import java.time.LocalDateTime
 
 @Suppress("DEPRECATION")
 class LoginActivity : BaseActivity(), View.OnClickListener {
-    /**
+    /**`
      * This function is auto created by Android when the Activity Class is created.
      */
     private lateinit var database : DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
 
         //This call the parent constructor
         super.onCreate(savedInstanceState)
@@ -143,7 +142,6 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         @RequiresApi(Build.VERSION_CODES.O)
         private fun updateLoginTable(id: String, userName: String){
 
-            val currentTimestamp = System.currentTimeMillis()
 
 
             val key: String? = database.push().key
