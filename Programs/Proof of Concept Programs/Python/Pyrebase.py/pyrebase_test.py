@@ -76,26 +76,11 @@ storage.child(cloudfilename).download("", "output.txt")
 
 #update
 #db.child("Users").child("TomTom").update({"age": "60"})
-#people = db.child("Users").get()
-
-#for person in people.each():
-    #print(person.val())
-   # print(person.key())
-  # if person.val()["userName"] == "TJFITZSTER":
-     #  print("We found you TJ")
-       #db.child("Users").child(person.key()).update({"name":"Jane"})
-
-#delete
-#db.child("Person").child("Age").remove()
-
-#db.child("Person").remove()
-people = db.child("People").get()
+people = db.child("Users").get()
 
 for person in people.each():
-    print(person.val())
-    print(person.key())
-    if person.val()["userName"] == "John Smith":
-       print("We found you JOhn")
-       db.child("People").child(person.key()).child("age").remove()
-
-#read
+    #print(person.val())
+   # print(person.key())
+   if person.val()["userName"] == "TJFITZSTER":
+       print("We found you TJ")
+       #db.child("Users").child(person.key()).update({"name":"Jane"})
