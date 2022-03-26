@@ -12,17 +12,33 @@ tools:context=".views.LoginActivity">
         android:layout_height="200dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="70dp"
-        android:src="@drawable/homeplant" />
+        android:layout_marginBottom="555dp"
+        android:src="@drawable/plants" />
+
+    <TextView
+        android:id="@+id/pageName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/app_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-550dp"
+        android:gravity="center"
+        android:text="@string/login_account"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/et_login_username"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_below="@id/app_logo"
+        android:layout_below="@+id/app_logo"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="-525dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/edt_background"
+
+        android:gravity="center"
         android:hint="Username"
         android:inputType="textEmailAddress"
         android:paddingLeft="13dp" />
@@ -32,10 +48,13 @@ tools:context=".views.LoginActivity">
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@id/et_login_username"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/edt_background"
+        android:gravity="center"
+
         android:hint="Password"
         android:inputType="textPassword"
         android:paddingLeft="13dp" />
@@ -49,39 +68,44 @@ tools:context=".views.LoginActivity">
         android:layout_marginTop="25dp"
         android:background="@drawable/btn_background"
         android:text="Login"
+        android:gravity="center"
         android:textColor="@color/colorWhite"
+
         android:textSize="20sp" />
-<TextView
-    android:id="@+id/tv_don_t_have_an_account"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="16dp"
-    android:padding="5dp"
-    android:layout_marginLeft="80dp"
-    android:layout_below="@id/btn_login"
-    android:text="Don\'t have an account?" />
 
-<TextView
-    android:id="@+id/tv_register"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_below="@id/btn_login"
-    android:layout_marginLeft="240dp"
-    android:layout_marginTop="16dp"
-    android:foreground="?attr/selectableItemBackground"
-    android:padding="5dp"
-    android:text="Register"
-    android:textStyle="bold" />
+    <TextView
+        android:id="@+id/tv_don_t_have_an_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:padding="5dp"
+        android:layout_marginLeft="80dp"
+        android:layout_below="@id/btn_login"
 
-<TextView
-    android:id="@+id/tv_forgot_password"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_below="@id/tv_register"
-    android:layout_marginLeft="150dp"
-    android:layout_marginTop="16dp"
-    android:foreground="?attr/selectableItemBackground"
-    android:padding="5dp"
-    android:text="Forgot Password"
-    android:textStyle="bold" />
+        android:text="Don\'t have an account?" />
+    <TextView
+        android:id="@+id/tv_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_login"
+        android:layout_marginLeft="240dp"
+        android:layout_marginTop="16dp"
+        android:foreground="?attr/selectableItemBackground"
+        android:padding="5dp"
+        android:text="Register"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_forgot_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_register"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="16dp"
+        android:foreground="?attr/selectableItemBackground"
+        android:padding="5dp"
+        android:layout_centerHorizontal="true"
+        android:text="Forgot Password"
+        android:textStyle="bold" />
+
 </RelativeLayout>

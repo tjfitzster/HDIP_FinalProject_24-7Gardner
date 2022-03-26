@@ -11,6 +11,7 @@
     <string name="register"><u>Register</u></string>
 
     <string name="create_an_account">CREATE AN ACCOUNT</string>
+    <string name="login_account">LOGIN TO YOUR ACCOUNT</string>
     <string name="splash_title_text_size">24/7 GARDENER</string>
     <string name="hint_last_name">Last name</string>
     <string name="hint_first_name">First name</string>
