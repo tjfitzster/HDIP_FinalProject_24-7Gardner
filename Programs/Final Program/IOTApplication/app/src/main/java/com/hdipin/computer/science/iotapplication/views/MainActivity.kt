@@ -3,7 +3,6 @@ package com.hdipin.computer.science.iotapplication.views
 import androidx.appcompat.app.AppCompatActivity
 import android.content.Intent
 import android.os.Bundle
-
 import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
 import com.hdipin.computer.science.iotapplication.R
@@ -20,8 +19,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         val userName = intent.getStringExtra("Username")
 
-        binding.btnViewGardens.setOnClickListener() {
-            showErrorSnackBar("User Gardens pressed.", false)
+        binding.btnAddaGarden.setOnClickListener() {
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            val intent = Intent(this@MainActivity, AddGardenActivity::class.java)
+            intent.putExtra("userName", userName)
+            startActivity(intent)
         }
         binding.btnUserSettings.setOnClickListener {
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK

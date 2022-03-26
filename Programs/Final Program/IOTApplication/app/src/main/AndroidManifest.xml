@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IOTApplication">
         <activity
+            android:name=".views.AddSensorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.AddGardenActivity"
+            android:exported="false" />
+        <activity
             android:name=".views.UserProfileActivity"
             android:exported="false" />
         <activity
@@ -20,7 +26,7 @@
             android:exported="false" />
         <activity
             android:name=".views.RegisterActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".views.LoginActivity"
             android:exported="true">

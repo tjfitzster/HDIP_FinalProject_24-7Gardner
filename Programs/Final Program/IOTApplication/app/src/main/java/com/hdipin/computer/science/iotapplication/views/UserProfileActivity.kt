@@ -34,10 +34,8 @@ class UserProfileActivity : AppCompatActivity() {
         binding.etUsername.gravity = Gravity.CENTER_HORIZONTAL;
         readData(userName.toString())
         binding.btnSave.setOnClickListener(){
-
             writeData(binding.etUsername.text.toString())
             showErrorSnackBar("User Successfully Updated", false)
-
         finish()
 
         }
@@ -46,14 +44,15 @@ class UserProfileActivity : AppCompatActivity() {
 
     private fun readData(userName: String){
 
-        database = FirebaseDatabase.getInstance().getReference("UserProfile")
+        database = FirebaseDatabase.getInstance().getReference("Users")
         database.child(userName).get().addOnSuccessListener {
 
             if (it.exists()){
                 userId = it.child("profileid").value.toString()
-                binding.etFirstName.setText(it.child("firstName").value.toString())
+                binding.etFirstName.setText(it.child("firstname").value.toString())
                 binding.etLastName.setText(it.child("secondname").value.toString())
-                binding.etMobile.setText(it.child("mobileNo").value.toString())
+
+
             }else{
                 userId = FirebaseDatabase.getInstance().getReference("Users").push().key
             }
@@ -65,8 +64,7 @@ class UserProfileActivity : AppCompatActivity() {
         val userProfile = UserProfileModel(userId,
             binding.etUsername.text.toString(),
         binding.etFirstName.text.toString(),
-        binding.etLastName.text.toString(),
-        binding.etMobile.text.toString())
+        binding.etLastName.text.toString())
 
         database = FirebaseDatabase.getInstance().getReference("UserProfile")
         database.child(userName).setValue(userProfile).addOnSuccessListener {

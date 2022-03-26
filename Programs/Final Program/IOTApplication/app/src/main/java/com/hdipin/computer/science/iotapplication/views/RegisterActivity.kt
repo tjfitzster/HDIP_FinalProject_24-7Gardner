@@ -1,7 +1,6 @@
 package com.hdipin.computer.science.iotapplication.views
 
 
-import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.WindowManager
@@ -122,18 +121,20 @@ class RegisterActivity : BaseActivity() {
         if (validateRegisterDetails()) {
             // Show the progress dialog.
             showProgressDialog(resources.getString(R.string.please_wait))
-            val email: String = et_username.text.toString().trim { it <= ' ' }
+            val username: String = et_username.text.toString().trim { it <= ' ' }
+            val firstname: String = et_first_name.text.toString().trim { it <= ' ' }
+            val lastname: String = et_last_name.text.toString().trim { it <= ' ' }
             val password: String = et_password.text.toString().trim { it <= ' ' }
 
             //generateanidifnot
-            addUserToDatabase(email, password)
+            addUserToDatabase(username, firstname,lastname, password)
             // Create an instance and create a register a user with email and password.
         }
     }
 
-    private fun addUserToDatabase(userName: String, password: String) {
+    private fun addUserToDatabase(userName: String, firstname: String, lastname: String, password: String) {
         val key: String? = FirebaseDatabase.getInstance().getReference("Users").push().key
-        val user = UserModel(userName, password, key)
+        val user = UserModel(userName, firstname, lastname,  password, key)
         database = FirebaseDatabase.getInstance().getReference("Users")
 
         database.child(userName).get().addOnSuccessListener {

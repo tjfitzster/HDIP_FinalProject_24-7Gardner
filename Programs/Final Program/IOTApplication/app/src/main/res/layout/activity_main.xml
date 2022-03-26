@@ -6,15 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".views.MainActivity">
 
-
     <Button
-        android:id="@+id/btn_viewGardens"
+        android:id="@+id/btn_addaGarden"
         android:layout_width="311dp"
         android:layout_height="53dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="328dp"
         android:background="@drawable/btn_background"
-        android:text="Gardens"
+        android:text="Add a Garden"
         android:textColor="@color/colorWhite"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,14 +32,13 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_viewGardens" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_addaGarden" />
 
     <Button
         android:id="@+id/btn_logout"
         android:layout_width="311dp"
         android:layout_height="53dp"
         android:layout_centerHorizontal="true"
-
         android:layout_marginTop="20dp"
         android:background="@drawable/btn_background"
         android:text="Logout"
@@ -55,9 +53,8 @@
         android:layout_width="250dp"
         android:layout_height="150dp"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/homecollection"
-
-        app:layout_constraintBottom_toTopOf="@+id/btn_viewGardens"
+        android:src="@drawable/plants"
+        app:layout_constraintBottom_toTopOf="@+id/btn_addaGarden"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"

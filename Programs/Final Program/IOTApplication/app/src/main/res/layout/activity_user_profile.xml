@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.UserProfileActivity">
+    tools:context=".views.UserProfileActivity">
 
 
     <androidx.appcompat.widget.Toolbar
@@ -76,11 +76,11 @@ app:layout_constraintTop_toBottomOf="@id/toolbar_user_profile_activity">
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:background="@drawable/edt_background"
+            android:gravity="center"
             android:hint="Username"
             android:inputType="text"
             android:padding="@dimen/et_padding"
             android:textColor="@color/colorPrimaryText"
-
             android:textSize="@dimen/et_textSize"
             app:layout_constraintTop_toBottomOf="@+id/fl_user_image"
             tools:layout_editor_absoluteX="0dp" />
@@ -93,6 +93,8 @@ app:layout_constraintTop_toBottomOf="@id/toolbar_user_profile_activity">
             android:layout_marginTop="5dp"
             android:background="@drawable/edt_background"
             android:hint="First Name"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
             android:inputType="text"
             android:padding="@dimen/et_padding"
             android:textColor="@color/colorPrimaryText"
@@ -109,25 +111,14 @@ app:layout_constraintTop_toBottomOf="@id/toolbar_user_profile_activity">
             android:hint="Second Name"
             android:inputType="text"
             android:padding="@dimen/et_padding"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
             android:textColor="@color/colorPrimaryText"
             android:textSize="@dimen/et_textSize"
             app:layout_constraintTop_toBottomOf="@+id/et_first_name"
             tools:layout_editor_absoluteX="0dp" />
 
-        <EditText
-            android:id="@+id/et_mobile"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/et_username"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/edt_background"
-            android:hint="Mobile No"
-            android:inputType="text|numberDecimal"
-            android:padding="@dimen/et_padding"
-            android:textColor="@color/colorPrimaryText"
-            android:textSize="@dimen/et_textSize"
-            app:layout_constraintTop_toBottomOf="@+id/et_last_name"
-            tools:layout_editor_absoluteX="0dp" />
+
 
         <Button
         android:id="@+id/btn_save"
@@ -136,6 +127,7 @@ app:layout_constraintTop_toBottomOf="@id/toolbar_user_profile_activity">
         android:layout_gravity="center"
         android:background="@drawable/btn_background"
         android:foreground="?attr/selectableItemBackground"
+
         android:gravity="center"
         android:paddingTop="@dimen/btn_padding"
         android:paddingBottom="@dimen/btn_padding"
@@ -143,7 +135,7 @@ app:layout_constraintTop_toBottomOf="@id/toolbar_user_profile_activity">
         android:textColor="@color/colorWhite"
         android:textSize="20sp"
         android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@+id/et_mobile"
+        app:layout_constraintTop_toBottomOf="@+id/et_last_name"
         />
 
 
