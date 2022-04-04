@@ -21,9 +21,9 @@ class MyAdapter(private val userList : ArrayList<User>) : RecyclerView.Adapter<M
 
         val currentitem = userList[position]
 
-        holder.firstName.text = currentitem.firstName
-        holder.lastName.text = currentitem.lastName
-        holder.age.text = currentitem.age
+        holder.firstName.text = currentitem.firstname
+        holder.lastName.text = currentitem.secondname
+        holder.age.text = currentitem.username
 
     }
 
@@ -31,7 +31,6 @@ class MyAdapter(private val userList : ArrayList<User>) : RecyclerView.Adapter<M
 
         return userList.size
     }
-
 
     class MyViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
 

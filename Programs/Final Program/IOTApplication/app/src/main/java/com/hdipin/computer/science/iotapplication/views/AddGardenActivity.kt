@@ -16,12 +16,10 @@ class AddGardenActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_garden)
-        val userName = intent.getStringExtra("userName")
+        var userName = intent.getStringExtra("userName")
         btn_submit.setOnClickListener {
-            showErrorSnackBar("Clicked", true)
-            if (userName != null) {
-                registerGarden(userName)
-            }
+            userName = "tjf"
+            userName?.let { registerGarden(it) }
         }
     }
 

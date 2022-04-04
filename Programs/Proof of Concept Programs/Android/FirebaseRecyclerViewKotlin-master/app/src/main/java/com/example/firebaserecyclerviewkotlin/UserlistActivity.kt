@@ -23,7 +23,6 @@ class UserlistActivity : AppCompatActivity() {
 
         userArrayList = arrayListOf<User>()
         getUserData()
-
     }
 
     private fun getUserData() {

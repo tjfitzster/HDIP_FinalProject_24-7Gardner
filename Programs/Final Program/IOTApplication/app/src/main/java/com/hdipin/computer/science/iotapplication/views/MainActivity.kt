@@ -25,23 +25,44 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("userName", userName)
             startActivity(intent)
         }
-        binding.btnUserSettings.setOnClickListener {
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            val intent = Intent(this@MainActivity, UserProfileActivity::class.java)
-            intent.putExtra("userName", userName)
-            startActivity(intent)
-        }
+      //  binding.btnUserSettings.setOnClickListener {
+          //  intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+      //      val intent = Intent(this@MainActivity, UserProfileActivity::class.java)
+        //    intent.putExtra("userName", userName)
+       //     startActivity(intent)
+       // }
 
         binding.btnLogout.setOnClickListener {
             finish()
         }
 
-        binding.btnAddasensor.setOnClickListener {
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            val intent = Intent(this@MainActivity, AddSensorActivity::class.java)
-            intent.putExtra("userName", userName)
-            startActivity(intent)
-        }
+          binding.btnAddaGarden.setOnClickListener {
+              intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+              val intent = Intent(this@MainActivity, AddGardenActivity::class.java)
+             intent.putExtra("userName", userName)
+             startActivity(intent)
+          }
+
+         binding.btnListgardes.setOnClickListener {
+              intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+              val intent = Intent(this@MainActivity, ListgardensActivity::class.java)
+             intent.putExtra("userName", userName)
+             startActivity(intent)
+          }
+
+      //  binding.btnSchedule.setOnClickListener {
+      //      intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+      //      val intent = Intent(this@MainActivity, ScheduleActivity::class.java)
+       //     intent.putExtra("userName", userName)
+       //     startActivity(intent)
+      //  }
+
+      //  binding.btnAddasensor.setOnClickListener {
+        //    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+       //     val intent = Intent(this@MainActivity, AddSensorActivity::class.java)
+       //     intent.putExtra("userName", userName)
+       //     startActivity(intent)
+      //  }
     }
 
 

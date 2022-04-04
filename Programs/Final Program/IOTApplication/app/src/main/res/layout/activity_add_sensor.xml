@@ -40,8 +40,8 @@
         app:layout_constraintTop_toBottomOf="@id/addsensoractivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <FrameLayout
                 android:id="@+id/fl_user_image"
@@ -52,20 +52,20 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:id="@+id/iv_user_photo"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="3dp"
-                android:background="@color/colorLightGrey"
-                android:contentDescription="@string/content_description"
-                android:scaleType="fitXY"
-                android:src="@drawable/sensor" />
+                <ImageView
+                    android:id="@+id/iv_user_photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="3dp"
+                    android:background="@color/colorLightGrey"
+                    android:contentDescription="@string/content_description"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/sensor" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/user_image_background" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/user_image_background" />
             </FrameLayout>
 
             <EditText
@@ -75,7 +75,7 @@
                 android:layout_marginTop="12dp"
                 android:background="@drawable/edt_background"
                 android:gravity="center"
-                android:hint="Sensor Name"
+                android:hint="Device Name"
                 android:inputType="text"
                 android:padding="@dimen/et_padding"
                 android:textColor="@color/colorPrimaryText"
@@ -90,7 +90,7 @@
                 android:layout_marginTop="12dp"
                 android:background="@drawable/edt_background"
                 android:gravity="center"
-                android:hint="Sensor Service (Months)"
+                android:hint="Device Service (Months)"
                 android:inputType="date"
                 android:padding="@dimen/et_padding"
                 android:singleLine="true"
@@ -106,7 +106,7 @@
                 android:layout_marginTop="12dp"
                 android:background="@drawable/edt_background"
                 android:gravity="center"
-                android:hint="Sensor Pin No"
+                android:hint="Device Pin No"
                 android:inputType="number|text"
                 android:padding="@dimen/et_padding"
                 android:singleLine="true"

@@ -12,7 +12,7 @@
         android:layout_height="150dp"
         android:layout_centerHorizontal="true"
         android:src="@drawable/plants"
-        app:layout_constraintBottom_toTopOf="@+id/btn_addaGarden"
+        app:layout_constraintBottom_toTopOf="@+id/btn_logout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,44 +24,29 @@
         android:layout_width="311dp"
         android:layout_height="53dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="328dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/btn_background"
         android:text="Add a Garden"
         android:textColor="@color/colorWhite"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/app_logo" />
 
     <Button
-        android:id="@+id/btn_addasensor"
+        android:id="@+id/btn_listgardes"
         android:layout_width="311dp"
         android:layout_height="53dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
         android:background="@drawable/btn_background"
-        android:text="Add a Sensor"
+        android:text="List Gardens"
         android:textColor="@color/colorWhite"
         android:textSize="20sp"
-        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_addaGarden" />
-
     <Button
-        android:id="@+id/btn_userSettings"
-        android:layout_width="311dp"
-        android:layout_height="53dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/btn_background"
-        android:text="Profile"
-        android:textColor="@color/colorWhite"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_addasensor" />
-
-        <Button
             android:id="@+id/btn_logout"
             android:layout_width="311dp"
             android:layout_height="53dp"
@@ -73,7 +58,7 @@
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_userSettings" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_listgardes" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,11 +7,11 @@ Student Number: 20027865
 #   Imports
 ##############
 from datetime import datetime
+from datetime import date
 import time, os, requests
 from termcolor import colored
 import random
 import pyrebase
-from datetime import datetime
 import time
 import logging
 import board
@@ -100,14 +100,15 @@ def readSoilMoistDevice(db, devId):
               # dhtDevice = adafruit_dht.DHT11(board.D4)
     return random.randint(0, 255)
 
-def checkPumpSchedule(db, devId):
-    allDhtDevices = db.child("Devices").child(devId).get()
-    for attrib in allDhtDevices.each():
-        if(str(attrib.key()) == "measurmentPin"):
-              pinNo = attrib.val()  
-              #we tget the pin number
-              # we then read the device value on the pin   
-              # dhtDevice = adafruit_dht.DHT11(board.D4)
+def checkPumpScedule(db, devId):
+    allPumpDevices = db.child("PumpSchedule").child(devId).get()
+    for attrib in allPumpDevices.each():
+        if(str(attrib.key()) == "turnOnDate"):
+          turnOnDate = attrib.val()
+        elif(str(attrib.key()) == "turnOnTime"):
+          turnOnTime = attrib.val() 
+ 
+    date_obj = datetime.strptim(turnOnDate, )
     return random.randint(0, 1)
 
 def checkShutDownFlag(db):  
@@ -141,24 +142,23 @@ def readDevices(db):
                         if(str(attrib.val()) == str(1)): #DHT22
                                 devId = str(devAttrs.key())
                                 value = readDht22Device(db, devId)
-                                #value = takeDeviceMeasurment(str(attrib.val()))  
-                                #value = takeDht11DeviceMeasurment(3, 2)
-                                #print(str(attrib.val()))
                                 data = {"Timestamp": getTimestamp(),"DeviceID": str(devId), "Device": "DHT22", "Unit": "oC" , "Value": str(value)}
                                 db.child("SensorMeasurments").push(data)
     
                         elif(str(attrib.val()) == str(2)): # MQ135
+                            devId = str(devAttrs.key())
                             value = readMQ135Device(db, devId)
                             data = {"Timestamp": getTimestamp(),"DeviceID": str(devId), "Device": "MQ135", "Unit": "" , "Value": str(value)}
                             db.child("SensorMeasurments").push(data)
                             
                         elif(str(attrib.val()) == str(3)): # Soil Moisture
+                            devId = str(devAttrs.key())
                             value = readSoilMoistDevice(str(attrib.val()))
                             data = {"Timestamp": getTimestamp(),"DeviceID": str(devkey), "Device": "Moisture Sensor", "Unit": "Moisture" , "Value": str(value)}
                             db.child("SensorMeasurments").push(data)      
                             
                         elif(str(attrib.val()) == str(4)): #Water pump
-                            print("Water Pump found")
+                            devId = str(devAttrs.key())
                             checkPumpScedule(db, devId)
                            # value = takePumpeMeasurment(str(attrib.val()))
                             #checkPumpState(value)
