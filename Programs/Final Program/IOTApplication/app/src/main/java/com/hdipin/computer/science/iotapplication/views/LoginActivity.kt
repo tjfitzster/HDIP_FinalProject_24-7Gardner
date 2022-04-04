@@ -128,6 +128,12 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
                         intent.putExtra("Username", userName)
                         startActivity(intent)
                     }
+                else{
+                        hideProgressDialog()
+                        showErrorSnackBar("Incorrect Username or Password", true)
+
+
+                }
             }else{
 
                 showErrorSnackBar("Incorrect Username or Password", true)

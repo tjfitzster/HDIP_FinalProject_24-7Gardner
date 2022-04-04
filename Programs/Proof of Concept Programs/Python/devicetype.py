@@ -21,9 +21,13 @@ def firebaseInit():
 
 db = firebaseInit()
 
-data = {"DeviceType": "2", "DeviceName": "DHT22",  "MeasurmentPin": "1", "DeviceAddress": "0"}
+data = {"DeviceType": "1", "DeviceName": "DHT22",  "MeasurmentPin": "1", "DeviceAddress": "0"}
 db.child("Devices").push(data)
-data = {"DeviceType": "2", "DeviceName": "DHT22",  "MeasurmentPin": "3", "DeviceAddress": "0"}
+data = {"DeviceType": "2", "DeviceName": "MQ135",  "MeasurmentPin": "3", "DeviceAddress": "0"}
 db.child("Devices").push(data)
-data = {"DeviceType": "2", "DeviceName": "DHT22",  "MeasurmentPin": "2", "DeviceAddress": "0"}
+data = {"DeviceType": "3", "DeviceName": "SOIL Moisture Senor",  "MeasurmentPin": "2", "DeviceAddress": "0"}
+db.child("Devices").push(data)
+data = {"DeviceType": "4", "DeviceName": "Brightness Sensor",  "MeasurmentPin": "4", "DeviceAddress": "0"}
+db.child("Devices").push(data)
+data = {"DeviceType": "5", "DeviceName": "Pump",  "MeasurmentPin": "5", "DeviceAddress": "0"}
 db.child("Devices").push(data)

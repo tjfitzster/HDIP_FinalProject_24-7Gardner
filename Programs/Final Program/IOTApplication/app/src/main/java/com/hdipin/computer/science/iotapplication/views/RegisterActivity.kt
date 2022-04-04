@@ -1,6 +1,7 @@
 package com.hdipin.computer.science.iotapplication.views
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.WindowManager
@@ -65,15 +66,7 @@ class RegisterActivity : BaseActivity() {
      */
     private fun validateRegisterDetails(): Boolean {
         return when {
-            // TextUtils.isEmpty(et_first_name.text.toString().trim { it <= ' ' }) -> {
-            //      showErrorSnackBar(resources.getString(R.string.err_msg_enter_first_name), true)
-            //      false
-            //    }
 
-            //  TextUtils.isEmpty(et_last_name.text.toString().trim { it <= ' ' }) -> {
-            //    showErrorSnackBar(resources.getString(R.string.err_msg_enter_last_name), true)
-            //      false
-            //   }
 
             TextUtils.isEmpty(et_username.text.toString().trim { it <= ' ' }) -> {
                 showErrorSnackBar(resources.getString(R.string.err_msg_enter_email), true)
@@ -133,6 +126,7 @@ class RegisterActivity : BaseActivity() {
     }
 
     private fun addUserToDatabase(userName: String, firstname: String, lastname: String, password: String) {
+
         val key: String? = FirebaseDatabase.getInstance().getReference("Users").push().key
         val user = UserModel(userName, firstname, lastname,  password, key)
         database = FirebaseDatabase.getInstance().getReference("Users")
@@ -141,17 +135,23 @@ class RegisterActivity : BaseActivity() {
             if (it.exists()) {
                 showErrorSnackBar("User Already in Registered", true)
                 hideProgressDialog()
-            } else {
 
+            } else {
                 database.child(userName).setValue(user).addOnSuccessListener {
                     hideProgressDialog()
                     showErrorSnackBar("User Successfully Registered", false)
-                }.addOnFailureListener {
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+                    startActivity(intent)
+               }.addOnFailureListener {
                     showErrorSnackBar("There was an error with the database", true)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+                    startActivity(intent)
                 }
             }
         }
-            finish()
+
     }
 
 }

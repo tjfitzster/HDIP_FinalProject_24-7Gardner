@@ -62,9 +62,9 @@ class AddGardenActivity : BaseActivity() {
 
                 database.child(key.toString()).setValue(user).addOnSuccessListener {
                     hideProgressDialog()
-                    showErrorSnackBar("Garden Successfully Created", false)
+                    showErrorSnackBar("Garden Successfully Created", true)
                 }.addOnFailureListener {
-                    showErrorSnackBar("There was an error with the database", true)
+                    showErrorSnackBar("There was an error with the database", false)
                 }
         finish()
     }

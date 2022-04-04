@@ -33,7 +33,14 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnLogout.setOnClickListener {
-            showErrorSnackBar("Logout Pressed.", false)
+            finish()
+        }
+
+        binding.btnAddasensor.setOnClickListener {
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            val intent = Intent(this@MainActivity, AddSensorActivity::class.java)
+            intent.putExtra("userName", userName)
+            startActivity(intent)
         }
     }
 
@@ -60,4 +67,5 @@ class MainActivity : AppCompatActivity() {
         }
         snackBar.show()
     }
+
 }

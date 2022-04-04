@@ -8,6 +8,7 @@
     <color name="colorThemeOrange">#F4442d</color>
     <color name="colorThemegREEN">#35BE35</color>
     <color name="teal_200">#FF03DAC5</color>
+    <color name="ic_launcher_background">#ecedec</color>
     <color name="colorLightGrey">#F1F1F1</color>
     <color name="colorPrimaryText">#222934</color>
     <color name="colorSecondaryText">#989898</color>
