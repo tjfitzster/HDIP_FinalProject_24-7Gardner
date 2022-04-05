@@ -3,13 +3,13 @@ import pyrebase
 def firebaseInit():
     
     firebaseConfig = {
-  "apiKey": "AIzaSyAp9ePL5zkDKhvcXOrTANVygg25ZM1TMu8",
-  "authDomain": "rpidatabase2.firebaseapp.com",
-  "databaseURL": "https://rpidatabase2-default-rtdb.europe-west1.firebasedatabase.app",
-  "projectId": "rpidatabase2",
-  "storageBucket": "rpidatabase2.appspot.com",
-  "messagingSenderId": "477017064476",
-  "appId": "1:477017064476:web:489538a7d097af2d504bd9",
+  "apiKey": "AIzaSyA0nZc9Rz-q5BGob_SeICUvYhreUvnLVeo",
+  "authDomain": "finalproject-83f4a.firebaseapp.com",
+  "databaseURL": "https://finalproject-83f4a-default-rtdb.europe-west1.firebasedatabase.app",
+  "projectId": "finalproject-83f4a",
+  "storageBucket": "finalproject-83f4a.appspot.com",
+  "messagingSenderId": "714618999720",
+  "appId": "1:714618999720:web:88509c12285efaac59839d",
   "measurementId": "G-TNHFFDFX6S"
 };
     firebase = pyrebase.initialize_app(firebaseConfig)
@@ -19,8 +19,16 @@ def firebaseInit():
 def main():
     firebaseInit()
     db = firebaseInit()
-    data ={"age": str("55"), "firstName": "jjjj","lastName": "thisisatest","userName": "hhhhh"}
+    data ={"age": str("55"), "firstName": "jjjj","lastName": "thisisatest","userName": "tjf", "password": "into"}
     
+    db.child("Users").push(data)
+
+    data ={"age": str("22"), "firstName": "ttttt","lastName": "ttttttt","userName": "jjs", "password": "into"}
+
+    db.child("Users").push(data)
+    
+    data ={"age": str("66"), "firstName": "ddd","lastName": "aa","userName": "fdf", "password": "jim"}
+
     db.child("Users").push(data)
     
     

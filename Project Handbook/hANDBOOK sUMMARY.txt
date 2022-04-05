@@ -1,0 +1,12 @@
+The 24/7 gardeiner is an IOT / Android Application system  that 
+is used to useful information of the garden, such as luminosity, and humidity 
+from various sensors and relay this information into a cloud database.
+Once the information is in the cloud, it can be accessed from anywhere using a 
+smartphone app. 
+The following are some of the key features of the garden:
+	Real-time feedback of the garden's various sensors.
+	Database of the garden's health status.
+	Global monitoring and operating capacities.
+	App controlled water system.
+	Automatic watering schedules.
+	

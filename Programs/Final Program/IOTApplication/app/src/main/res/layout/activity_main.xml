@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.606" />
-
+<!--
     <Button
         android:id="@+id/btn_addaGarden"
         android:layout_width="311dp"
@@ -27,6 +27,20 @@
         android:layout_marginTop="12dp"
         android:background="@drawable/btn_background"
         android:text="Add a Garden"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/app_logo" />
+-->
+    <Button
+        android:id="@+id/btn_listSensors"
+        android:layout_width="311dp"
+        android:layout_height="53dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/btn_background"
+        android:text="List Sensors"
         android:textColor="@color/colorWhite"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +59,7 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_addaGarden" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_listSensors" />
     <Button
             android:id="@+id/btn_logout"
             android:layout_width="311dp"
