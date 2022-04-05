@@ -114,7 +114,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
 
             if (it.exists()){
 
-                val readusername = it.child("username").value
+                val readusername = it.child("userName").value
                 val id = it.child("uid").value
                 val readpassword = it.child("password").value
 

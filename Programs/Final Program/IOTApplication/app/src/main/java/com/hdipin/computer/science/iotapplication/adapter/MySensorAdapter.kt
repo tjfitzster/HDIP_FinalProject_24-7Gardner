@@ -21,9 +21,10 @@ class MySensorAdapter (private val sensorList : ArrayList<listSensorModel>) : Re
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
         val currentitem = sensorList[position]
-//lecf side of this is the app right side is the database this is where we bind the App to the database
+//left side of this is the app right side is the database this is where we bind the App to the database
         holder.deviceID.text = currentitem.DeviceID
         holder.timeStamp.text = currentitem.Timestamp
+        holder.device.text = currentitem.Device
         holder.value.text = currentitem.Value
 
     }
@@ -35,6 +36,7 @@ class MySensorAdapter (private val sensorList : ArrayList<listSensorModel>) : Re
 
         val deviceID : TextView = itemView.findViewById(R.id.tvdeviceID)
         val timeStamp : TextView = itemView.findViewById(R.id.tvtimestamp)
+        val device : TextView = itemView.findViewById(R.id.tvdeviceType)
         val value : TextView = itemView.findViewById(R.id.tvValue)
 
     }

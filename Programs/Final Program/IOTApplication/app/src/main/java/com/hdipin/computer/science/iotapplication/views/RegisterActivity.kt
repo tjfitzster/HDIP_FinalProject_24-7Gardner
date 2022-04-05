@@ -32,8 +32,6 @@ class RegisterActivity : BaseActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
 
-        //setupActionBar()
-
         btn_register.setOnClickListener {
 
             registerUser()
