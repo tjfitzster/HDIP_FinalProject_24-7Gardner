@@ -170,7 +170,7 @@ def checkShutDownFlag(db):
 
 
 def readFromDeviceDatalog():
-    try:
+    #try:
         with open('deviceData.json') as json_file:
             data = json.load(json_file)      
 
@@ -180,7 +180,7 @@ def readFromDeviceDatalog():
             deviceType = ""
             gardenID = ""
             measurmentPin = ""   
-
+            
             for key in data:
                 f_devId = data[key]
                 for devAttr in f_devId:
@@ -196,17 +196,17 @@ def readFromDeviceDatalog():
                         gardenID = str(f_devId[devAttr])
                     elif(devAttr == "measurmentPin"):
                         measurmentPin = str(f_devId[devAttr])
-            
-                measureDeviceValue(devId, deviceName, deviceType, measurmentPin)     
+                #print(devId +  deviceName +  deviceType+ measurmentPin)
+                measureDeviceValue(devId, deviceType, measurmentPin)     
                
-    except: 
-        print(datetime.now(), colored("Error with config file", "red"))
+    #except: 
+       # print(datetime.now(), colored("Error with config file", "red"))
    
                         
 def measureDeviceValue(devId, deviceType, measurmentPin):
     
     if(deviceType == "1"):   #DHT22  
-        value = deviceType(deviceType, measurmentPin)
+        value = readDevice(deviceType, measurmentPin)
         documentDeviceMeasurment(deviceType, devId, value)
     elif(deviceType == "2"): # MQ135
           value = readDevice(deviceType, measurmentPin)
@@ -373,16 +373,16 @@ def main():
         devConfig(db, "writeConfig") 
         while(True): 
             if (testInternet_connection()):
+                uploadDevicessMeasurments(db)
                 measurment_cycle_time = devConfig(db, "config")  
                 readDevices(db)
-                exeProg = devConfig(db, "progVal")
-                if(str(exeProg) == "False"):
-                    devConfig(db, "writeConfig")
-                    #shutdown
+               # exeProg = devConfig(db, "progVal")
+               # if(str(exeProg) == "False"):
+              #      devConfig(db, "writeConfig")
+              #      #shutdown
                 time.sleep(measurment_cycle_time)  
             else:   
                 readFromDeviceDatalog()
-                uploadDevicessMeasurments(db)
                 time.sleep(measurment_cycle_time)  
          
     else:  
