@@ -16,6 +16,8 @@ import time
 import logging
 import board
 import json
+import os.path
+import uuid
 #import adafruit_dht
 
 ##############
@@ -23,7 +25,7 @@ import json
 ##############
 def testInternet_connection():
     os.system('color')
-    url = 'https://console.firebase.google.com/project/finalproject-83f4a/database/finalproject-83f4a-default-rtdb/'
+    url = 'https://the247gardener-default-rtdb.europe-west1.firebasedatabase.app/'
     timeout = 2
     op = None
     now = datetime.now()
@@ -156,7 +158,7 @@ def checkPumpScedule(db, devId):
         elif(str(attrib.key()) == "turnOnTime"):
           turnOnTime = attrib.val() 
  
-    date_obj = datetime.strptim(turnOnDate, )
+    #date_obj = datetime.strptim(turnOnDate, )
     return random.randint(0, 1)
 
 def checkShutDownFlag(db):  
@@ -240,28 +242,32 @@ def documentDeviceMeasurment(deviceName, devId, value):
   
   
 def uploadDevicessMeasurments(db): 
-    try:
-        datalog = open("deviceMeasurments.csv", "r")
-        data = datalog.read()
-        data = data.strip()
-        datalog.close()
-       
-        indexedData = data.split("\n")
-        for x in range(len(indexedData)):    
-           comma_seperated_indexed_data = indexedData[x].split(",")
-           data = {"Timestamp": comma_seperated_indexed_data[2],"DeviceID": comma_seperated_indexed_data[1], "Device": comma_seperated_indexed_data[0], "Unit": comma_seperated_indexed_data[1], "Value": comma_seperated_indexed_data[4]}
-           db.child("SensorMeasurments").push(data)
-
-        open("deviceMeasurments.csv", "w").close()
-        
+    file_exists = os.path.exists("deviceMeasurments.csv") 
+    
+    if(file_exists == True):
+        try:
+            datalog = open("deviceMeasurments.csv", "r")
+            data = datalog.read()
+            data = data.strip()
+            datalog.close()
+            indexedData = data.split("\n")
+            if(len(indexedData) > 1):
+                for x in range(len(indexedData)):    
+                    comma_seperated_indexed_data = indexedData[x].split(",")
+                    data = {"Timestamp": comma_seperated_indexed_data[2],"DeviceID": comma_seperated_indexed_data[1], "Device": comma_seperated_indexed_data[0], "Unit": comma_seperated_indexed_data[1], "Value": comma_seperated_indexed_data[4]}
+                    db.child("SensorMeasurments").push(data)
+                open("deviceMeasurments.csv", "w").close()
+            else:
+                pass
+        except Exception as e: 
+            print(e)
+    else:
+        pass
       
-    except:
-        print("Error uploading CSV file")
-
-       
+           
                                                     
 def readDevices(db):
-    try:
+    #try:
       allDevices = db.child("Devices").get()
       for device in allDevices.each():    
               
@@ -297,8 +303,8 @@ def readDevices(db):
                           #  data = {"Timestamp": getTimestamp(),"DeviceID": str(devkey), "Device": "Moisture Sensor", "Unit": "Moisture" , "Value": str(value)}
                         #    db.child("SensorMeasurments").push(data)      
         
-    except: 
-        print(datetime.now(), colored("No Devices Configured", "red"))
+   # except: 
+     #   print(datetime.now(), colored("No Devices Configured", "red"))
         
 def lightSensor():
     return random.randint(0, 255)
@@ -341,6 +347,10 @@ def shutDown():
     # write config file
     pass
 
+def registerPiDevice(db, uuid):
+    print("here")
+    data = {"Timestamp": getTimestamp(),"RaspberryPi": str(uuid)}
+    db.child("RaspberryPiDevices").push(data)
     
 ##############
 #   Standard Setup
@@ -349,14 +359,14 @@ def shutDown():
 def firebaseInit():
     
     firebaseConfig = {
-  "apiKey": "AIzaSyA0nZc9Rz-q5BGob_SeICUvYhreUvnLVeo",
-  "authDomain": "finalproject-83f4a.firebaseapp.com",
-  "databaseURL": "https://finalproject-83f4a-default-rtdb.europe-west1.firebasedatabase.app",
-  "projectId": "finalproject-83f4a",
-  "storageBucket": "finalproject-83f4a.appspot.com",
-  "messagingSenderId": "714618999720",
-  "appId": "1:714618999720:web:88509c12285efaac59839d",
-  "measurementId": "G-TNHFFDFX6S"
+  "apiKey": "AIzaSyB5ZEKfxmPISJDONFwzyAbiAswHDB2XyVw",
+  "authDomain": "the247gardener.firebaseapp.com",
+  "databaseURL": "https://the247gardener-default-rtdb.europe-west1.firebasedatabase.app",
+  "projectId": "the247gardener",
+  "storageBucket": "the247gardener.appspot.com",
+  "messagingSenderId": "217798900708",
+  "appId": "1:217798900708:web:91583507b4cb70463325f1",
+  "measurementId": "G-07VZN847Q7"
 };
     
     firebase = pyrebase.initialize_app(firebaseConfig)
@@ -366,9 +376,11 @@ def firebaseInit():
 #   Main Program
 ##############
 def main():
+    uuidOne = uuid.uuid1()
     measurment_cycle_time = 0 
     if(testInternet_connection()): 
         db = firebaseInit()
+        registerPiDevice(db, uuidOne)
         measurment_cycle_time = devConfig(db, "config")
         devConfig(db, "writeConfig") 
         while(True): 
@@ -376,9 +388,9 @@ def main():
                 uploadDevicessMeasurments(db)
                 measurment_cycle_time = devConfig(db, "config")  
                 readDevices(db)
-               # exeProg = devConfig(db, "progVal")
-               # if(str(exeProg) == "False"):
-              #      devConfig(db, "writeConfig")
+                exeProg = devConfig(db, "progVal")
+                if(str(exeProg) == "False"):
+                    devConfig(db, "writeConfig")
               #      #shutdown
                 time.sleep(measurment_cycle_time)  
             else:   
@@ -386,9 +398,9 @@ def main():
                 time.sleep(measurment_cycle_time)  
          
     else:  
-          # shutDown()
-       #   input("Exiting Program")
-     exit()
+           shutDown()
+           input("Exiting Program")
+           exit()
     
 if __name__ == "__main__":
     main()

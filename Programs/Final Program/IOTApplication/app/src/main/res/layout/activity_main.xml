@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".views.MainActivity">
+
 
     <ImageView
         android:id="@+id/app_logo"
@@ -12,19 +15,19 @@
         android:layout_height="150dp"
         android:layout_centerHorizontal="true"
         android:src="@drawable/plants"
-        app:layout_constraintBottom_toTopOf="@+id/btn_logout"
+        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.606" />
-<!--
+
     <Button
         android:id="@+id/btn_addaGarden"
         android:layout_width="311dp"
         android:layout_height="53dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/btn_background"
         android:text="Add a Garden"
         android:textColor="@color/colorWhite"
@@ -32,7 +35,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/app_logo" />
--->
+    <Button
+        android:id="@+id/btn_addaSensor"
+        android:layout_width="311dp"
+        android:layout_height="53dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/btn_background"
+        android:text="Add a Device"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_addaGarden" />
     <Button
         android:id="@+id/btn_listSensors"
         android:layout_width="311dp"
@@ -40,19 +55,20 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="12dp"
         android:background="@drawable/btn_background"
-        android:text="List Sensors"
+        android:text="List Devices"
         android:textColor="@color/colorWhite"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/app_logo" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_addaSensor"
+        />
 
     <Button
         android:id="@+id/btn_listgardes"
         android:layout_width="311dp"
         android:layout_height="53dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/btn_background"
         android:text="List Gardens"
         android:textColor="@color/colorWhite"
@@ -60,19 +76,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_listSensors" />
-    <Button
-            android:id="@+id/btn_logout"
-            android:layout_width="311dp"
-            android:layout_height="53dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/btn_background"
-            android:text="Logout"
-            android:textColor="@color/colorWhite"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_listgardes" />
 
+    <Button
+        android:id="@+id/btn_scheduler"
+        android:layout_width="311dp"
+        android:layout_height="53dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/btn_background"
+        android:text="Schedule a Device"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_listgardes" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

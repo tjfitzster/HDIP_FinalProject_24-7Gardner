@@ -26,13 +26,13 @@ class UserProfileActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val userName = intent.getStringExtra("userName")
-
         binding.etUsername.setText(userName.toString())
 
         binding.etUsername.isEnabled = false
         binding.etUsername.setTypeface(null, Typeface.BOLD)
         binding.etUsername.gravity = Gravity.CENTER_HORIZONTAL;
         readData(userName.toString())
+
         binding.btnSave.setOnClickListener(){
             writeData(binding.etUsername.text.toString())
             showErrorSnackBar("User Successfully Updated", false)
@@ -49,8 +49,8 @@ class UserProfileActivity : AppCompatActivity() {
 
             if (it.exists()){
                 userId = it.child("profileid").value.toString()
-                binding.etFirstName.setText(it.child("firstname").value.toString())
-                binding.etLastName.setText(it.child("secondname").value.toString())
+                binding.etFirstName.setText(it.child("firstName").value.toString())
+                binding.etLastName.setText(it.child("lastName").value.toString())
 
 
             }else{

@@ -65,7 +65,6 @@ class RegisterActivity : BaseActivity() {
     private fun validateRegisterDetails(): Boolean {
         return when {
 
-
             TextUtils.isEmpty(et_username.text.toString().trim { it <= ' ' }) -> {
                 showErrorSnackBar(resources.getString(R.string.err_msg_enter_email), true)
                 false
