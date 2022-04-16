@@ -132,16 +132,16 @@ class RegisterActivity : BaseActivity() {
 
         database.child(userName).get().addOnSuccessListener {
            if (it.exists()) {
-                showErrorSnackBar("User Already in Registered", true)
+                showErrorSnackBar("User Already  Registered", true)
                 hideProgressDialog()
 
             } else {
                 database.child(userName).setValue(user).addOnSuccessListener {
                     hideProgressDialog()
                     showErrorSnackBar("User Successfully Registered", false)
-                   intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                   val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
-                    startActivity(intent)
+                //   intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                   //val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+                 //   startActivity(intent)
               }.addOnFailureListener {
                     showErrorSnackBar("There was an error with the database", true)
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
