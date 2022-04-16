@@ -67,8 +67,8 @@ tools:context=".views.LoginActivity">
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
         android:background="@drawable/btn_background"
-        android:text="Login"
         android:gravity="center"
+        android:text="Login"
         android:textColor="@color/colorWhite"
 
         android:textSize="20sp" />

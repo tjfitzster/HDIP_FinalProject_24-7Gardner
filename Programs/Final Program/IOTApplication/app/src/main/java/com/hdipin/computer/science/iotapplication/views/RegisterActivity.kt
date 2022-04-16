@@ -10,6 +10,7 @@ import com.hdipin.computer.science.iotapplication.R
 import com.hdipin.computer.science.iotapplication.activities.BaseActivity
 import com.hdipin.computer.science.iotapplication.models.UserModel
 import kotlinx.android.synthetic.main.activity_register.*
+import android.util.Log
 
 private const val TAG = "RegisterActivity"
 
@@ -125,11 +126,12 @@ class RegisterActivity : BaseActivity() {
     private fun addUserToDatabase(userName: String, firstname: String, lastname: String, password: String) {
 
         val key: String? = FirebaseDatabase.getInstance().getReference("Users").push().key
+
         val user = UserModel(userName, firstname, lastname,  password, key)
         database = FirebaseDatabase.getInstance().getReference("Users")
 
         database.child(userName).get().addOnSuccessListener {
-            if (it.exists()) {
+           if (it.exists()) {
                 showErrorSnackBar("User Already in Registered", true)
                 hideProgressDialog()
 
@@ -137,16 +139,17 @@ class RegisterActivity : BaseActivity() {
                 database.child(userName).setValue(user).addOnSuccessListener {
                     hideProgressDialog()
                     showErrorSnackBar("User Successfully Registered", false)
-                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                    val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+                   intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                   val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
                     startActivity(intent)
-               }.addOnFailureListener {
+              }.addOnFailureListener {
                     showErrorSnackBar("There was an error with the database", true)
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
-                    startActivity(intent)
-                }
+                   startActivity(intent)
+               }
             }
+
         }
 
     }

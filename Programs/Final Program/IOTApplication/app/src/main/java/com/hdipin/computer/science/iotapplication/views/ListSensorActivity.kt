@@ -9,7 +9,6 @@ import com.google.firebase.database.*
 import com.hdipin.computer.science.iotapplication.adapter.MySensorAdapter
 import com.hdipin.computer.science.iotapplication.models.listSensorModel
 
-
 private lateinit var dbref : DatabaseReference
 private lateinit var sensorRecyclerview : RecyclerView
 private lateinit var sensorArrayList : ArrayList<listSensorModel>
@@ -32,7 +31,6 @@ class ListSensorActivity : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()){
                     for (userSnapshot in snapshot.children){
-
                         val sensor = userSnapshot.getValue(listSensorModel::class.java)
                         sensorArrayList.add(sensor!!)
 

@@ -49,12 +49,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-         binding.btnListgardes.setOnClickListener {
+         binding.btnListgardeNs.setOnClickListener {
               intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-              val intent = Intent(this@MainActivity, ListUsersActivity::class.java)
-             intent.putExtra("userName", userName)
+              val intent = Intent(this@MainActivity, ListgardensActivity::class.java)
+              intent.putExtra("userName", userName)
              startActivity(intent)
-             finish()
+           //  finish()
           }
 
       //  binding.btnSchedule.setOnClickListener {
@@ -80,7 +80,13 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.nav_settings-> {
-                Toast.makeText(this, "Settings", Toast.LENGTH_SHORT)
+                var userName = intent.getStringExtra("Username")
+                userName = "tjf"
+                Toast.makeText(this, userName.toString(), Toast.LENGTH_SHORT)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                val intent = Intent(this@MainActivity, DeviceConfigActivity::class.java)
+                intent.putExtra("userName", userName)
+                startActivity(intent)
             }
             R.id.nav_userprofile-> {
                 var userName = intent.getStringExtra("Username")

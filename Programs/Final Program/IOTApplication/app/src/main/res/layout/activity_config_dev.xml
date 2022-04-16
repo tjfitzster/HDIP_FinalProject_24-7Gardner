@@ -4,28 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.AddSensorActivity">
+    tools:context=".views.DeviceConfigActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/addsensoractivity"
+        android:id="@+id/toolbar_device_configuration_activity"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        android:textAlignment="center"
-        android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <TextView
-            android:id="@+id/addsensor"
+            android:id="@+id/config_title"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:paddingStart="25dp"
+            android:paddingStart="@dimen/toolbar_title_paddingStart"
             android:paddingEnd="0dp"
-            android:text="@string/addsensor"
-            android:textColor="@color/colorPrimaryText"
-            android:textSize="18sp" />
+            android:text="@string/title_configuratione_device"
+            android:textColor="@color/black"
+            android:textSize="@dimen/toolbar_title_text_size"
+            android:textStyle="bold" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -37,8 +36,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/addsensoractivity">
-
+        app:layout_constraintTop_toBottomOf="@id/toolbar_device_configuration_activity">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -60,7 +58,7 @@
                     android:background="@color/colorLightGrey"
                     android:contentDescription="@string/content_description"
                     android:scaleType="fitXY"
-                    android:src="@drawable/ic_baseline_device_thermostat_24" />
+                    android:src="@drawable/ic_baseline_settings_applications_24" />
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -68,69 +66,56 @@
             </FrameLayout>
 
             <EditText
-                android:id="@+id/et_SensorName"
+                android:id="@+id/et_sample_Frequency"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:background="@drawable/edt_background"
                 android:gravity="center"
-                android:hint="Device Name"
-                android:inputType="text"
+                android:hint="Sample Frequency (s)"
+                android:inputType="numberSigned"
                 android:padding="@dimen/et_padding"
                 android:textColor="@color/colorPrimaryText"
                 android:textSize="@dimen/et_textSize"
                 app:layout_constraintTop_toBottomOf="@+id/fl_user_image"
                 tools:layout_editor_absoluteX="0dp" />
 
-            <EditText
-                android:id="@+id/et_sensorService"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:background="@drawable/edt_background"
-                android:gravity="center"
-                android:hint="Device Service (Months)"
-                android:inputType="date"
-                android:padding="@dimen/et_padding"
-                android:singleLine="true"
-                android:textColor="@color/colorPrimaryText"
-                android:textSize="@dimen/et_textSize"
-                app:layout_constraintTop_toBottomOf="@+id/et_SensorName"
-                tools:layout_editor_absoluteX="0dp" />
-
-            <EditText
-                android:id="@+id/et_SensorPinNo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:background="@drawable/edt_background"
-                android:gravity="center"
-                android:hint="Device Pin No"
-                android:inputType="number|text"
-                android:padding="@dimen/et_padding"
-                android:singleLine="true"
-                android:textColor="@color/colorPrimaryText"
-                android:textSize="@dimen/et_textSize"
-                app:layout_constraintTop_toBottomOf="@+id/et_sensorService"
-                tools:layout_editor_absoluteX="0dp" />
-            <EditText
-                android:id="@+id/et_GardenName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/edt_background"
-                android:gravity="center"
-                android:hint="Garden"
-                android:layout_marginTop="12dp"
-                android:inputType="text"
-                android:padding="@dimen/et_padding"
-                android:textColor="@color/colorPrimaryText"
-                android:textSize="@dimen/et_textSize"
-                app:layout_constraintTop_toBottomOf="@+id/et_SensorPinNo"
-                tools:layout_editor_absoluteX="0dp" />
-
-
             <RadioGroup
-                android:id="@+id/rg_dev"
+                android:id="@+id/dev_exe"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_sample_Frequency">
+
+
+                <RadioButton
+                    android:id="@+id/exeProgramTrue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/edt_background"
+                    android:checked="true"
+                    android:text="  Execute Program" />
+                <RadioButton
+                    android:id="@+id/exeProgramFalse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edt_background"
+                    android:layout_weight="1"
+                    android:text="Shutdown Device" />
+
+
+
+
+            </RadioGroup>
+            <RadioGroup
+                android:id="@+id/uploadconfig"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginStart="16dp"
@@ -139,37 +124,54 @@
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/et_GardenName">
+                app:layout_constraintTop_toBottomOf="@id/dev_exe">
 
                 <RadioButton
-                    android:id="@+id/DHT22"
+                    android:id="@+id/UploadConfigTrue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/edt_background"
                     android:checked="true"
-                    android:text="  DHT22" />
+                    android:text="Upload Configuration" />
                 <RadioButton
-                    android:id="@+id/AirQuality"
+                    android:id="@+id/UploadConfigFalse"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/edt_background"
                     android:layout_weight="1"
-                    android:text="02" />
+                    android:text="Do Not Upload" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/writeConfig"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/uploadconfig">
+
                 <RadioButton
-                    android:id="@+id/Moisture"
+                    android:id="@+id/WriteConfigTrue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/edt_background"
+                    android:checked="true"
+                    android:text="Write Configuration File" />
+                <RadioButton
+                    android:id="@+id/WriteConfigFalse"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/edt_background"
                     android:layout_weight="1"
-                    android:text="S.MOISTURE" />
-                <RadioButton
-                    android:id="@+id/Light"
-                    android:layout_width="wrap_content"
-                    android:background="@drawable/edt_background"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="PUMP" />
+                    android:text="Do Not Write" />
+
             </RadioGroup>
 
             <Button
@@ -186,8 +188,10 @@
                 android:textColor="@color/colorWhite"
                 android:textSize="20sp"
                 android:layout_marginTop="10dp"
-                app:layout_constraintTop_toBottomOf="@+id/rg_dev"
+                app:layout_constraintTop_toBottomOf="@+id/writeConfig"
                 />
+
+
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
