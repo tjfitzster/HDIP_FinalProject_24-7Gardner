@@ -172,7 +172,7 @@ def checkShutDownFlag(db):
 
 
 def readFromDeviceDatalog():
-    #try:
+    try:
         with open('deviceData.json') as json_file:
             data = json.load(json_file)      
 
@@ -198,11 +198,11 @@ def readFromDeviceDatalog():
                         gardenID = str(f_devId[devAttr])
                     elif(devAttr == "measurmentPin"):
                         measurmentPin = str(f_devId[devAttr])
-                #print(devId +  deviceName +  deviceType+ measurmentPin)
+       
                 measureDeviceValue(devId, deviceType, measurmentPin)     
                
-    #except: 
-       # print(datetime.now(), colored("Error with config file", "red"))
+    except: 
+        print(datetime.now(), colored("Error with config file", "red"))
    
                         
 def measureDeviceValue(devId, deviceType, measurmentPin):
@@ -348,7 +348,6 @@ def shutDown():
     pass
 
 def registerPiDevice(db, uuid):
-    print("here")
     data = {"Timestamp": getTimestamp(),"RaspberryPi": str(uuid)}
     db.child("RaspberryPiDevices").push(data)
     
