@@ -18,8 +18,10 @@
     <string name="hint_first_name">First name</string>
     <string name="et_hint_confirm_password">Confirm Password</string>
     <string name="deviceConfig">Device Configuration</string>
-    <string name="title_configuratione_device">DEVICE CONFIGURATION</string>
-
+    <string name="title_configuratione_device">DEVICE CONFIURATION</string>
+    <string name="addSchedule">SCHEDULE A DEVICE</string>
+    <string name="err_msg_enter_devname">Please enter a device name</string>
+    <string name="err_msg_enter_devtime">Please enter a device turn on time</string>
     <string name="i_agree_to_the_terms_and_condition">I Agree To The <u> Terms &amp; Condition </u></string>
     <string name="btn_lbl_register">Register</string>
 

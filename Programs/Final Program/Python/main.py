@@ -154,9 +154,10 @@ def checkPumpScedule(db, devId):
     allPumpDevices = db.child("PumpSchedule").child(devId).get()
     for attrib in allPumpDevices.each():
         if(str(attrib.key()) == "turnOnDate"):
-          turnOnDate = attrib.val()
+          turnOnDateVal = attrib.val()
         elif(str(attrib.key()) == "turnOnTime"):
-          turnOnTime = attrib.val() 
+          turnOnTimeVal = attrib.val()
+          checkpumpdatetime(turnOnDateVal, turnOnTimeVal)
  
     #date_obj = datetime.strptim(turnOnDate, )
     return random.randint(0, 1)
@@ -169,6 +170,14 @@ def checkShutDownFlag(db):
             else:
                 input("Exiting Program")
                 exit() # User wants to exit
+
+
+def checkpumpdatetime(turnOnDateVal, turnOnTimeVal):
+    day_today =  date.today().strftime("%d/%m/%Y")
+    timestamp = time.strftime('%H:%M')
+    
+    pass
+
 
 
 def readFromDeviceDatalog():
@@ -254,7 +263,8 @@ def uploadDevicessMeasurments(db):
             if(len(indexedData) > 1):
                 for x in range(len(indexedData)):    
                     comma_seperated_indexed_data = indexedData[x].split(",")
-                    data = {"Timestamp": comma_seperated_indexed_data[2],"DeviceID": comma_seperated_indexed_data[1], "Device": comma_seperated_indexed_data[0], "Unit": comma_seperated_indexed_data[1], "Value": comma_seperated_indexed_data[4]}
+                    data = {"Timestamp": comma_seperated_indexed_data[2],"DeviceID": comma_seperated_indexed_data[1], 
+                            "Device": comma_seperated_indexed_data[0], "Unit": comma_seperated_indexed_data[1], "Value": comma_seperated_indexed_data[4]}
                     db.child("SensorMeasurments").push(data)
                 open("deviceMeasurments.csv", "w").close()
             else:
@@ -267,7 +277,7 @@ def uploadDevicessMeasurments(db):
            
                                                     
 def readDevices(db):
-    #try:
+    try:
       allDevices = db.child("Devices").get()
       for device in allDevices.each():    
               
@@ -297,14 +307,10 @@ def readDevices(db):
                         elif(str(attrib.val()) == str(4)): #Water pump
                             devId = str(devAttrs.key())
                             checkPumpScedule(db, devId)
-                           # value = takePumpeMeasurment(str(attrib.val()))
-                            #checkPumpState(value)
-                          #  changePumpState(db, devId)
-                          #  data = {"Timestamp": getTimestamp(),"DeviceID": str(devkey), "Device": "Moisture Sensor", "Unit": "Moisture" , "Value": str(value)}
-                        #    db.child("SensorMeasurments").push(data)      
+                          
         
-   # except: 
-     #   print(datetime.now(), colored("No Devices Configured", "red"))
+    except: 
+        print(datetime.now(), colored("No Devices Configured", "red"))
         
 def lightSensor():
     return random.randint(0, 255)
@@ -344,6 +350,10 @@ def bootUp():
          print(datetime.now(), colored("Config file does not exist", "red"))
         
 def shutDown():
+    # write config file
+    pass
+
+def checkSchedule():
     # write config file
     pass
 
@@ -390,7 +400,7 @@ def main():
                 exeProg = devConfig(db, "progVal")
                 if(str(exeProg) == "False"):
                     devConfig(db, "writeConfig")
-              #      #shutdown
+                    shutDown()
                 time.sleep(measurment_cycle_time)  
             else:   
                 readFromDeviceDatalog()

@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
         val userName = intent.getStringExtra("Username")
 
 
-
         binding.btnAddaGarden.setOnClickListener() {
             var userName = "tjf"
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -31,16 +30,6 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("userName", userName)
             startActivity(intent)
         }
-      //  binding.btnUserSettings.setOnClickListener {
-
-       // }
-
-       //   binding.btnAddaGarden.setOnClickListener {
-         //     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-         //     val intent = Intent(this@MainActivity, AddGardenActivity::class.java)
-          //   intent.putExtra("userName", userName)
-         //    startActivity(intent)
-       //   }
 
         binding.btnListSensors.setOnClickListener {
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -57,12 +46,12 @@ class MainActivity : AppCompatActivity() {
            //  finish()
           }
 
-      //  binding.btnSchedule.setOnClickListener {
-      //      intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-      //      val intent = Intent(this@MainActivity, ScheduleActivity::class.java)
-       //     intent.putExtra("userName", userName)
-       //     startActivity(intent)
-      //  }
+       binding.btnScheduler.setOnClickListener {
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            val intent = Intent(this@MainActivity, ScheduleActivity::class.java)
+            intent.putExtra("userName", userName)
+            startActivity(intent)
+        }
 
         binding.btnAddaSensor.setOnClickListener {
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK

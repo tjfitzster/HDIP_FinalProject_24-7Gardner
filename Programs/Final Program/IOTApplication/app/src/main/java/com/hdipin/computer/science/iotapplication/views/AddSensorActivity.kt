@@ -27,7 +27,6 @@ class AddSensorActivity : BaseActivity() {
         binding.etGardenName.setTypeface(null, Typeface.BOLD)
 
         btn_save.setOnClickListener {
-            showErrorSnackBar("Clicked", true)
             if(validateSensorDetails()) {
                 registerSensor()
             }
