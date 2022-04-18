@@ -20,14 +20,9 @@ import os.path
 import uuid
 import adafruit_dht
 from subprocess import call
-import RPi.GPIO as GPIO
 
 ##############
 #   Functions
-##############
-
-##############
-#   PINGS THE FIREBASE API END POINT
 ##############
 def testInternet_connection():
     os.system('color')
@@ -46,9 +41,19 @@ def testInternet_connection():
     except:
         print(now, colored("No Internet Connected", "red"))
         return False
-  ##############
-#   MEASURMENT CYCLE TIME
- ##############   
+
+def soilMoisture():
+    return random.randint(0, 255)
+
+def gasSensor():
+    return random.randint(0, 255)
+
+def writeConfigurationFile(db):
+    pass
+
+def uploadConfigurationFile(db):
+    pass
+
 def getmeasCycleTime(db):
   try:   
     objfreq = db.child("Configuration").child("Frequency (s)").get()
@@ -61,9 +66,7 @@ def getmeasCycleTime(db):
   except: 
       freq = 10
   return freq
-  ##############
-#   DEVICE CONFIGURATIUON FUNCTION
- ##############    
+
 def devConfig(db, configType):
     if (configType == "config"):     
         try:   
@@ -110,13 +113,14 @@ def devConfig(db, configType):
              uploadDeviceLog(db)
          except: 
              pass
+           # uConfigVal = False 
+        # if(uConfigVal == True):
+               # uploadConfigurationFile(db)   
                 
     else:
         print(datetime.now(), colored("Config Error Occured", "red"))
 
-  ##############
-#   READ DHT22 DEVICE
- ##############   
+
 def readDht22Device(db, devId):
     allDhtDevices = db.child("Devices").child(devId).get()
     for attrib in allDhtDevices.each():
@@ -125,66 +129,39 @@ def readDht22Device(db, devId):
               DHT_SENSOR = Adafruit_DHT.DHT22 
               humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN) 
     return humidity, temperature
-  ##############
-#   READ MQ135 DEVICE
- ##############  
+
 def readMQ135Device(db, devId):
     allMQDevices = db.child("Devices").child(devId).get()
     for attrib in allMQDevices.each():
         if(str(attrib.key()) == "measurmentPin"):
-              MQ135_PIN = attrib.val() 
-              if(GPIO.input(MQ135_PIN)):
-                  return 1
-              else:
-                  return 0
- ##############
-#   READ SOIL MOISTURE DEVICE
- ##############          
+              pinNo = attrib.val()  
+              #we tget the pin number
+              # we then read the device value on the pin   
+              # dhtDevice = adafruit_dht.DHT11(board.D4)
+    return random.randint(0, 255)
+
 def readSoilMoistDevice(db, devId):
     allMoistDevices = db.child("Devices").child(devId).get()
     for attrib in allMoistDevices.each():
         if(str(attrib.key()) == "measurmentPin"):
-                MOISTURE_PIN = attrib.val()  
-                if(GPIO.input(MOISTURE_PIN)):
-                  return 1
-                else:
-                  return 0
-          
- ##############
-#   CHECK PUMP SCHEDULE
- ##############  
-def checkPumpScedule(db, devId, pinNo):
+              pinNo = attrib.val()  
+              #we tget the pin number
+              # we then read the device value on the pin   
+              # dhtDevice = adafruit_dht.DHT11(board.D4)
+    return random.randint(0, 255)
+
+def checkPumpScedule(db, devId):
     allPumpDevices = db.child("PumpSchedule").child(devId).get()
     for attrib in allPumpDevices.each():
         if(str(attrib.key()) == "turnOnDate"):
           turnOnDateVal = attrib.val()
         elif(str(attrib.key()) == "turnOnTime"):
           turnOnTimeVal = attrib.val()
-        elif(str(attrib.key()) == "completedOn"):
-          completedFlag = attrib.val()
-    
-    if(checkpumpdatetime(turnOnDateVal, turnOnTimeVal, completedFlag)):
-     GPIO.output(pinNo, 1)
-     time.sleep(5)
-     GPIO.output(pinNo, 0)
-     updatePumpDevices(turnOnDateVal, turnOnTimeVal, completedFlag)
+          checkpumpdatetime(turnOnDateVal, turnOnTimeVal)
+ 
+    #date_obj = datetime.strptim(turnOnDate, )
+    return random.randint(0, 1)
 
- ##############
-#   UPDATE PUMP DEVICE
- ##############  
-def updatePumpDevices(turnOnDateVal, turnOnTimeVal, completedFlag):
-    if (completedFlag == False):
-        day_today =  date.today().strftime("%d/%m/%Y")
-        timestamp = time.strftime('%H:%M')
-        if (day_today >= turnOnDateVal):
-            if (timestamp >= turnOnTimeVal):
-                return True
-    else:
-        return False
-    
-  ##############
-#   CHECKS THE SHUTDOWN FLAG
- ##############   
 def checkShutDownFlag(db):  
      progexe = db.child("programExecution").get()
      for prog in progexe.each():    
@@ -194,19 +171,15 @@ def checkShutDownFlag(db):
                 input("Exiting Program")
                 exit() # User wants to exit
 
-  ##############
-#   CHECKS PUMP DATE AND TIME
-##############   
-def checkpumpdatetime(turnOnDateVal, turnOnTimeVal, completedFlag):
-    if (completedFlag == False):
-        day_today =  date.today().strftime("%d/%m/%Y")
-        timestamp = time.strftime('%H:%M')
-        if (day_today >= turnOnDateVal):
-            if (timestamp >= turnOnTimeVal):
-                return True
-    else:
-        return False
+
+def checkpumpdatetime(turnOnDateVal, turnOnTimeVal):
+    day_today =  date.today().strftime("%d/%m/%Y")
+    timestamp = time.strftime('%H:%M')
     
+    pass
+
+
+
 def readFromDeviceDatalog():
     try:
         with open('deviceData.json') as json_file:
@@ -240,9 +213,7 @@ def readFromDeviceDatalog():
     except: 
         print(datetime.now(), colored("Error with config file", "red"))
    
-  ##############
-#   MEASURES DEVICES VALUE 
-##############                        
+                        
 def measureDeviceValue(devId, deviceType, measurmentPin):
     
     if(deviceType == "1"):   #DHT22  
@@ -258,22 +229,13 @@ def measureDeviceValue(devId, deviceType, measurmentPin):
           value = readDevice(deviceType, measurmentPin)
           documentDeviceMeasurment(deviceType, devId, value)                 
 
- ##############
-#   READS DEVICES 
-##############  
+
 def readDevice(deviceType, devmeasurmentPinId):
-         if(deviceType == "1"):
-             deviceName = "DHT22"
-         elif(deviceType == "2"):
-             deviceName = "MQ135"
-         elif(deviceType == "3"):
-             deviceName = "Moisture Sensor"
-         elif(deviceType == "4"):
-             deviceName = "Water Pump" 
-         return random.randint(0, 255)
- ##############
-#   DOCUMENTS DEVICES 
-##############  
+              #we tget the pin number
+              # we then read the device value on the pin
+            # dhtDevice = adafruit_dht.DHT11(board.D4)
+    return random.randint(0, 255)
+
 def documentDeviceMeasurment(deviceName, devId, value): 
      with open("deviceMeasurments.csv", "a") as f:
          if(deviceName == "1"):
@@ -287,9 +249,7 @@ def documentDeviceMeasurment(deviceName, devId, value):
          f.write(str(deviceName) + "," + str(devId) + "," + getTimestamp() + "," +  "UNIT" + ","  + str(value) +  "\n")
      f.close()
   
-   ##############
-#   UPLOADS DEVICES MEASURMENTS TO SERVER
-##############  
+  
 def uploadDevicessMeasurments(db): 
     file_exists = os.path.exists("deviceMeasurments.csv") 
     
@@ -314,9 +274,7 @@ def uploadDevicessMeasurments(db):
     else:
         pass
       
- ##############
-#   READS DEVICES FROM SERVER
-##############          
+           
                                                     
 def readDevices(db):
     try:
@@ -356,11 +314,10 @@ def readDevices(db):
     except: 
         print(datetime.now(), colored("No Devices Configured", "red"))
         
+def lightSensor():
+    return random.randint(0, 255)
 
 
-##############
-#   uploads logfile to server
-##############
 def uploadDeviceLog(db):
 
     with open('deviceData.json') as json_file:
@@ -369,9 +326,7 @@ def uploadDeviceLog(db):
     for key in data:
         db.child("Devices").child(str(key)).set(data[key])
   
-##############
-#   WRITES LOGFILE
-##############
+
 def writeDeviceLog(db):
      devData = dict()
      
@@ -383,39 +338,33 @@ def writeDeviceLog(db):
      with open("deviceData.json", "w") as outfile:
         outfile.write(json_object)
                  
-##############
-#   GETS TIMESTAMP
-##############
+
 def getTimestamp():
     ct = datetime.now()
     return str(ct)
 
-##############
-#   BOOTS UP RASPBERRY PI
-##############
+
 def bootUp():
     try:    
         fle = open("rPi.config", "r")
         print(fle.read())
     except IOError:
          print(datetime.now(), colored("Config file does not exist", "red"))
-##############
-#   SHUTS THE RASPBERRY PI DOWN
-##############        
+        
 def shutDown():
     call("sudo poweroff", shell=True)
 
 
+def checkSchedule():
+    # write config file
+    pass
 
-##############
-#   REGISTERS RASPBERRY PI DEVICE
-##############
 def registerPiDevice(db, uuid):
     data = {"Timestamp": getTimestamp(),"RaspberryPi": str(uuid)}
     db.child("RaspberryPiDevices").push(data)
     
 ##############
-#   FIREBASE INITISATION
+#   Standard Setup
 ##############
 
 def firebaseInit():
@@ -440,7 +389,6 @@ def firebaseInit():
 def main():
     uuidOne = uuid.uuid1()
     measurment_cycle_time = 0 
-    GPIO.setmode(GPIO.BOARD)
     if(testInternet_connection()): 
         db = firebaseInit()
         registerPiDevice(db, uuidOne)
