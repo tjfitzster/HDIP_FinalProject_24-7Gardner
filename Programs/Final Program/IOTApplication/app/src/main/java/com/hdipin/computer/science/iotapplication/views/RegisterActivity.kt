@@ -122,7 +122,9 @@ class RegisterActivity : BaseActivity() {
             // Create an instance and create a register a user with email and password.
         }
     }
-
+    /**
+     * A function to validate and add a user to a database
+     */
     private fun addUserToDatabase(userName: String, firstname: String, lastname: String, password: String) {
 
         val key: String? = FirebaseDatabase.getInstance().getReference("Users").push().key
@@ -139,9 +141,9 @@ class RegisterActivity : BaseActivity() {
                 database.child(userName).setValue(user).addOnSuccessListener {
                     hideProgressDialog()
                     showErrorSnackBar("User Successfully Registered", false)
-                //   intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                   //val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
-                 //   startActivity(intent)
+                   intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                   val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+                   startActivity(intent)
               }.addOnFailureListener {
                     showErrorSnackBar("There was an error with the database", true)
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -149,9 +151,7 @@ class RegisterActivity : BaseActivity() {
                    startActivity(intent)
                }
             }
-
         }
-
     }
 
 }

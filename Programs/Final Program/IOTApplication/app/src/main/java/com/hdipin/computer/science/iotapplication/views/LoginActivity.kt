@@ -148,8 +148,6 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         @RequiresApi(Build.VERSION_CODES.O)
         private fun updateLoginTable(id: String, userName: String){
 
-
-
             val key: String? = database.push().key
             val login = LoginModel(key, userName,LocalDateTime.now().toString())
 
