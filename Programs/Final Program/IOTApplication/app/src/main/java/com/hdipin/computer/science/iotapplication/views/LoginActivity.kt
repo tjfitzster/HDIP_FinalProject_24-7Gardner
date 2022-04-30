@@ -114,14 +114,13 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
 
             if (it.exists()){
 
-                val readusername = it.child("username").value
+                val readusername = it.child("userName").value
                 val id = it.child("uid").value
                 val readpassword = it.child("password").value
 
                     if((readusername?.equals(userName) == true) &&  (readpassword?.equals(password) == true)){
                         showErrorSnackBar("User Logged In", false)
                         hideProgressDialog()
-
                         updateLoginTable(id as String, userName)
                         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                         val intent = Intent(this@LoginActivity, MainActivity::class.java)
@@ -130,7 +129,8 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
                     }
                 else{
                         hideProgressDialog()
-                        showErrorSnackBar("Incorrect Username or Password", true)
+
+                        showErrorSnackBar("$readusername  $readpassword", true)
 
 
                 }

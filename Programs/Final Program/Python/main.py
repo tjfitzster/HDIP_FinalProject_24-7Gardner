@@ -18,9 +18,9 @@ import board
 import json
 import os.path
 import uuid
-import adafruit_dht
+#import adafruit_dht
 from subprocess import call
-import RPi.GPIO as GPIO
+#import RPi.GPIO as GPIO
 
 ##############
 #   Functions
@@ -67,14 +67,15 @@ def getmeasCycleTime(db):
 def devConfig(db, configType):
     if (configType == "config"):     
         try:   
-            objfreq = db.child("Configuration").child("frequency (s)").get()
+            objfreq = db.child("Configuration").child("frequency").get()
             freq = objfreq.val()
-            if (freq < 4):
+           
+            if (int(freq) < 4):
                 freq = 4
             else:
                 pass
         except: 
-            freq = 10
+            freq = 45
         return freq
 
     elif(configType == "progVal"):
@@ -121,9 +122,11 @@ def readDht22Device(db, devId):
     allDhtDevices = db.child("Devices").child(devId).get()
     for attrib in allDhtDevices.each():
         if(str(attrib.key()) == "measurmentPin"):
-              DHT_PIN = attrib.val()
-              DHT_SENSOR = Adafruit_DHT.DHT22 
-              humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN) 
+           #   DHT_PIN = attrib.val()
+            #  DHT_SENSOR = Adafruit_DHT.DHT22 
+            #  humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN) 
+            humidity = random.randrange(0, 25)
+            temperature = random.randrange(0, 12)
     return humidity, temperature
   ##############
 #   READ MQ135 DEVICE
@@ -132,11 +135,12 @@ def readMQ135Device(db, devId):
     allMQDevices = db.child("Devices").child(devId).get()
     for attrib in allMQDevices.each():
         if(str(attrib.key()) == "measurmentPin"):
-              MQ135_PIN = attrib.val() 
-              if(GPIO.input(MQ135_PIN)):
-                  return 1
-              else:
-                  return 0
+            return random.randrange(0, 255)
+            #  MQ135_PIN = attrib.val() 
+            #  if(GPIO.input(MQ135_PIN)):
+             #     return 1
+           #   else:
+              #    return 0
  ##############
 #   READ SOIL MOISTURE DEVICE
  ##############          
@@ -145,10 +149,11 @@ def readSoilMoistDevice(db, devId):
     for attrib in allMoistDevices.each():
         if(str(attrib.key()) == "measurmentPin"):
                 MOISTURE_PIN = attrib.val()  
-                if(GPIO.input(MOISTURE_PIN)):
-                  return 1
-                else:
-                  return 0
+                return random.randrange(0, 255)
+            #    if(GPIO.input(MOISTURE_PIN)):
+           #       return 1
+              #  else:
+               #   return 0
           
  ##############
 #   CHECK PUMP SCHEDULE
@@ -354,7 +359,8 @@ def readDevices(db):
                           
         
     except: 
-        print(datetime.now(), colored("No Devices Configured", "red"))
+        #print(datetime.now(), colored("No Devices Configured", "red"))
+        pass
         
 
 
@@ -374,7 +380,6 @@ def uploadDeviceLog(db):
 ##############
 def writeDeviceLog(db):
      devData = dict()
-     
      allDevices = db.child("Devices").get()
      for device in allDevices.each():    
        devData[device.key()] = device.val() 
@@ -403,7 +408,8 @@ def bootUp():
 #   SHUTS THE RASPBERRY PI DOWN
 ##############        
 def shutDown():
-    call("sudo poweroff", shell=True)
+  #  call("sudo poweroff", shell=True)
+  pass
 
 
 
@@ -440,30 +446,29 @@ def firebaseInit():
 def main():
     uuidOne = uuid.uuid1()
     measurment_cycle_time = 0 
-    GPIO.setmode(GPIO.BOARD)
     if(testInternet_connection()): 
-        db = firebaseInit()
-        registerPiDevice(db, uuidOne)
-        measurment_cycle_time = devConfig(db, "config")
-        devConfig(db, "writeConfig") 
-        while(True): 
+       db = firebaseInit()
+      # registerPiDevice(db, uuidOne)
+       measurment_cycle_time = devConfig(db, "config")
+       devConfig(db, "writeConfig") 
+       while(True): 
             if (testInternet_connection()):
                 uploadDevicessMeasurments(db)
                 measurment_cycle_time = devConfig(db, "config")  
                 readDevices(db)
                 exeProg = devConfig(db, "progVal")
                 if(str(exeProg) == "False"):
-                    devConfig(db, "writeConfig")
-                    shutDown()
-                time.sleep(measurment_cycle_time)  
+                 devConfig(db, "writeConfig")
+                 shutDown()
+                time.sleep(int(measurment_cycle_time))  
             else:   
                 readFromDeviceDatalog()
-                time.sleep(measurment_cycle_time)  
+                time.sleep(int(measurment_cycle_time))  
          
-    else:  
-           shutDown()
-           input("Exiting Program")
-           exit()
+    else: 
+        input("Exiting Program")
+      #    shutDown()
+        exit()
     
 if __name__ == "__main__":
     main()

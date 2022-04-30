@@ -1,0 +1,42 @@
+{
+ "-MzjyWUWaQ0wAxMTw-V2": {
+  "devId": "-MzjyWUWaQ0wAxMTw-V2",
+  "deviceDate": "553911447444",
+  "deviceName": "the back light",
+  "deviceType": 1,
+  "gardenID": "-Mz5WlbtYe-TBfB2EFPR",
+  "measurmentPin": "2"
+ },
+ "-Mzk0btRi7JdTGeTiiGS": {
+  "devId": "-Mzk0btRi7JdTGeTiiGS",
+  "deviceDate": "497",
+  "deviceName": "jdkd",
+  "deviceType": 1,
+  "gardenID": "-Mz5WlbtYe-TBfB2EFPR",
+  "measurmentPin": "5"
+ },
+ "-Mzk0hVAVs5nLCPwQwV_": {
+  "devId": "-Mzk0hVAVs5nLCPwQwV_",
+  "deviceDate": "64",
+  "deviceName": "jr",
+  "deviceType": 1,
+  "gardenID": "-Mz5WlbtYe-TBfB2EFPR",
+  "measurmentPin": "7"
+ },
+ "-Mzk555B7EO3T8kI9Th1": {
+  "devId": "-Mzk555B7EO3T8kI9Th1",
+  "deviceDate": "49",
+  "deviceName": "3iei",
+  "deviceType": 4,
+  "gardenID": "-Mz5WlbtYe-TBfB2EFPR",
+  "measurmentPin": "5"
+ },
+ "-Mzk5Au79sa1XfazCU-K": {
+  "devId": "-Mzk5Au79sa1XfazCU-K",
+  "deviceDate": "49",
+  "deviceName": "rk",
+  "deviceType": 4,
+  "gardenID": "-Mz5WlbtYe-TBfB2EFPR",
+  "measurmentPin": "9"
+ }
+}

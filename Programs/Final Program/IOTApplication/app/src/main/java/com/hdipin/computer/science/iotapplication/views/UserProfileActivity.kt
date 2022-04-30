@@ -10,6 +10,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.hdipin.computer.science.iotapplication.R
 import com.hdipin.computer.science.iotapplication.databinding.ActivityUserProfileBinding
+import com.hdipin.computer.science.iotapplication.models.UserModel
 import com.hdipin.computer.science.iotapplication.models.UserProfileModel
 
 
@@ -18,6 +19,7 @@ class UserProfileActivity : AppCompatActivity() {
     private lateinit var database : DatabaseReference
     private lateinit var binding: ActivityUserProfileBinding
     private var userId: String? = ""
+    private var password : String? = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -48,7 +50,8 @@ class UserProfileActivity : AppCompatActivity() {
         database.child(userName).get().addOnSuccessListener {
 
             if (it.exists()){
-                userId = it.child("profileid").value.toString()
+                userId = it.child("uid").value.toString()
+                password = it.child("password").value.toString()
                 binding.etFirstName.setText(it.child("firstName").value.toString())
                 binding.etLastName.setText(it.child("lastName").value.toString())
 
@@ -61,13 +64,14 @@ class UserProfileActivity : AppCompatActivity() {
 
     private fun writeData(userName: String){
 
-        val userProfile = UserProfileModel(userId,
-            binding.etUsername.text.toString(),
-        binding.etFirstName.text.toString(),
-        binding.etLastName.text.toString())
+        val user = UserModel(binding.etUsername.text.toString(),
+            binding.etFirstName.text.toString(),
+            binding.etLastName.text.toString(),
+            "Limerick1",
+            userId)
 
-        database = FirebaseDatabase.getInstance().getReference("UserProfile")
-        database.child(userName).setValue(userProfile).addOnSuccessListener {
+        database = FirebaseDatabase.getInstance().getReference("Users")
+        database.child(userName).setValue(user).addOnSuccessListener {
 
 
 

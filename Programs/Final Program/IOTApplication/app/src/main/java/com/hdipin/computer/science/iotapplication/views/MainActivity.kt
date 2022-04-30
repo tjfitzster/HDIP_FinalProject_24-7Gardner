@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
 
         binding.btnAddaGarden.setOnClickListener() {
-            var userName = "tjf"
+
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             val intent = Intent(this@MainActivity, AddGardenActivity::class.java)
             intent.putExtra("userName", userName)
@@ -70,8 +70,6 @@ class MainActivity : AppCompatActivity() {
         when(item.itemId){
             R.id.nav_settings-> {
                 var userName = intent.getStringExtra("Username")
-                userName = "tjf"
-                Toast.makeText(this, userName.toString(), Toast.LENGTH_SHORT)
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 val intent = Intent(this@MainActivity, DeviceConfigActivity::class.java)
                 intent.putExtra("userName", userName)
@@ -79,16 +77,16 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.nav_userprofile-> {
                 var userName = intent.getStringExtra("Username")
-                userName = "tjf"
-                Toast.makeText(this, userName.toString(), Toast.LENGTH_SHORT)
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 val intent = Intent(this@MainActivity, UserProfileActivity::class.java)
                 intent.putExtra("userName", userName)
                 startActivity(intent)
             }
             R.id.logout-> {
-                Toast.makeText(this, "Logout", Toast.LENGTH_SHORT)
-            } // finish()}
+                showErrorSnackBar("Successfully Logged Out", false)
+                val intent = Intent(this@MainActivity, LoginActivity::class.java)
+                startActivity(intent)
+            }
         }
         return super.onOptionsItemSelected(item)
     }

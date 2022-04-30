@@ -17,7 +17,9 @@
     <string name="hint_last_name">Last name</string>
     <string name="hint_first_name">First name</string>
     <string name="et_hint_confirm_password">Confirm Password</string>
+    <string name="validfequenct">Please Enter A Sample Frequency</string>
     <string name="deviceConfig">Device Configuration</string>
+    <string name="err_mdevname">Please Enter A Device ID</string>
     <string name="title_configuratione_device">DEVICE CONFIURATION</string>
     <string name="addSchedule">SCHEDULE A DEVICE</string>
     <string name="err_msg_enter_devname">Please enter a device name</string>
@@ -33,6 +35,10 @@
     <string name="err_msg_enter_last_name">Please enter last name.</string>
     <string name="err_msg_enter_email">Please enter email.</string>
     <string name="err_msg_enter_password">Please enter password.</string>
+    <string name="err_msg_enter_garden">Please select a garden Id.</string>
+    <string name="err_msg_pinno_garden">Please enter a device pin number.</string>
+    <string name="err_msg_enter_senname">Please enter sensor Name.</string>
+    <string name="err_msg_enter_sermon">Please enter sensor service Months.</string>
     <string name="err_msg_enter_confirm_password">Please enter confirm password.</string>
     <string name="err_msg_password_and_confirm_password_mismatch">Password and confirm password does not match.</string>
     <string name="err_msg_agree_terms_and_condition">Please agree terms and condition.</string>

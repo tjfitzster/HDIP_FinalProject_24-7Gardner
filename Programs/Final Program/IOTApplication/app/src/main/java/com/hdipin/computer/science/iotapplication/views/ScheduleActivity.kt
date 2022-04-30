@@ -1,6 +1,7 @@
 package com.hdipin.computer.science.iotapplication.views
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.DatePicker
@@ -46,7 +47,7 @@ class ScheduleActivity : BaseActivity() {
     private fun validateScheduleDetails(): Boolean {
         return when {
             TextUtils.isEmpty(et_deviceName.text.toString().trim { it <= ' ' }) -> {
-                showErrorSnackBar(resources.getString(R.string.err_msg_enter_devname), true)
+                showErrorSnackBar(resources.getString(R.string.err_mdevname), true)
                 false
             }
             TextUtils.isEmpty(et_turnonTime.text.toString().trim { it <= ' ' }) -> {
@@ -74,7 +75,9 @@ class ScheduleActivity : BaseActivity() {
         }.addOnFailureListener {
             showErrorSnackBar("There was an error with the database", false)
         }
-        finish()
+
+        val intent = Intent(this@ScheduleActivity, MainActivity::class.java)
+        startActivity(intent)
     }
 
 

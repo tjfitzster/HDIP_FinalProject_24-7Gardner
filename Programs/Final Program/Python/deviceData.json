@@ -38,5 +38,21 @@
   "deviceType": 4,
   "gardenID": "-Mz5WlbtYe-TBfB2EFPR",
   "measurmentPin": "9"
+ },
+ "-N0LjB-ZExLnLqxYQb9K": {
+  "devId": "-N0LjB-ZExLnLqxYQb9K",
+  "deviceDate": "6",
+  "deviceName": "THE AIR DEVICE",
+  "deviceType": 2,
+  "gardenID": "-Mz5WlbtYe-TBfB2EFPR",
+  "measurmentPin": "4"
+ },
+ "-N0Ljr9_FuFU0GZF5VNC": {
+  "devId": "-N0Ljr9_FuFU0GZF5VNC",
+  "deviceDate": "9",
+  "deviceName": "TJ",
+  "deviceType": 4,
+  "gardenID": "-Mz5WlbtYe-TBfB2EFPR",
+  "measurmentPin": "2"
  }
 }

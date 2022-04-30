@@ -28,22 +28,14 @@ class UserlistActivity : AppCompatActivity() {
     private fun getUserData() {
 
         dbref = FirebaseDatabase.getInstance().getReference("Users")
-
         dbref.addValueEventListener(object : ValueEventListener{
-
             override fun onDataChange(snapshot: DataSnapshot) {
-
                 if (snapshot.exists()){
-
                     for (userSnapshot in snapshot.children){
-
-
                         val user = userSnapshot.getValue(User::class.java)
                         userArrayList.add(user!!)
-
                     }
                     userRecyclerview.adapter = MyAdapter(userArrayList)
-
                 }
 
             }

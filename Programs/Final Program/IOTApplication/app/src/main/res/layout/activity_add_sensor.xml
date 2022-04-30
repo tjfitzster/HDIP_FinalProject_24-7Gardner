@@ -113,20 +113,16 @@
                 android:textSize="@dimen/et_textSize"
                 app:layout_constraintTop_toBottomOf="@+id/et_sensorService"
                 tools:layout_editor_absoluteX="0dp" />
-            <EditText
+            <Spinner
                 android:id="@+id/et_GardenName"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/edt_background"
-                android:gravity="center"
-                android:hint="Garden"
+                android:layout_height="50dp"
                 android:layout_marginTop="12dp"
-                android:inputType="text"
-                android:padding="@dimen/et_padding"
-                android:textColor="@color/colorPrimaryText"
-                android:textSize="@dimen/et_textSize"
-                app:layout_constraintTop_toBottomOf="@+id/et_SensorPinNo"
-                tools:layout_editor_absoluteX="0dp" />
+                android:textAlignment="center"
+                android:background="@drawable/edt_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_SensorPinNo" />
 
 
             <RadioGroup
@@ -190,7 +186,12 @@
                 />
 
 
+
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
